@@ -159,19 +159,19 @@ Administrators can manage the entire platform.
 
 #### 📊 Analytics
 
-|  👥 User statistics  |  🎬 Content statistics  |  ⭐ Review statistics  |  📈 Platform activity  |
+| 👥 User statistics | 🎬 Content statistics | ⭐ Review statistics | 📈 Platform activity |
 
 #### 👥 User Management
 
-|  🔎 Search users  |  👁️ View user accounts  |  ✅ Activate / deactivate accounts  |  🗑️ Delete users  |
+| 🔎 Search users | 👁️ View user accounts | ✅ Activate / deactivate accounts | 🗑️ Delete users |
 
 #### 🎬 Content Management
 
-|  ➕ Add content  |  ✏️ Edit content  |  🗑️ Delete content  |  📚 Manage metadata  |
+| ➕ Add content | ✏️ Edit content | 🗑️ Delete content | 📚 Manage metadata |
 
 #### ⭐ Review Moderation
 
-|  👀 View reviews  |  🛡️ Moderate reviews  |  🗑️ Remove inappropriate reviews  |
+| 👀 View reviews | 🛡️ Moderate reviews | 🗑️ Remove inappropriate reviews |
 
 ---
 
