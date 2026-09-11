@@ -1,248 +1,735 @@
-# CineMind AI – AI Entertainment Discovery Platform
+# 🎬 CineMind AI – AI Entertainment Discovery Platform
 
-> *"Discover what you'll love next."*
+> **Discover what you'll love next.**
 
-CineMind AI is a modern, realistic, fully functional full-stack web application designed to help users discover **movies, TV shows, web series, anime, music, and podcasts** using an advanced multi-factor AI recommendation engine.
+**CineMind AI** is a full-stack AI-powered entertainment discovery platform designed to help users discover personalized **movies, TV shows, web series, anime, music, and podcasts** based on their interests, viewing behavior, preferred languages, moods, ratings, and content preferences.
 
-Built with a cinematic dark glassmorphic design, zero frontend frameworks (pure vanilla HTML5, CSS3, and modern JavaScript), and an Express.js backend with dual-mode persistent database abstraction (MongoDB with seamless zero-config embedded JSON file store fallback).
-
----
-
-## 🌟 Key Platform Features
-
-### 1. 9-Factor AI Recommendation Engine
-Calculates normalized match scores (0–100%) for every title relative to each user's taste profile:
-* **Genre Vector Overlap (22%)**: Overlap between title genres and user's favorite & watched genres.
-* **Language Match (15%)**: Alignment with user's preferred languages (English, Tamil, Hindi, Korean, Japanese, etc.).
-* **Content Format Match (10%)**: Movies, TV Shows, Anime, Music, Podcasts.
-* **Rating Preference (15%)**: Weighted against high community consensus and user rating history.
-* **Watch History Similarity (13%)**: Cosine similarity against themes and genres of recently finished titles.
-* **Mood Match (10%)**: Dynamic alignment with user's selected emotional vibe.
-* **Global Popularity (10%)**: Audience engagement velocity and critical acclaim.
-* **Score Breakdown Modal**: Visual insight into why every percentage point was awarded.
-* **"Why We Recommend This" Explanations**: Human-like justifications generated dynamically.
-
-### 2. Conversational AI Assistant
-* Natural language prompt understanding ("Recommend a thriller under 2 hours", "Suggest Tamil movies", "Anime similar to Naruto", "What should I watch if I liked Interstellar?").
-* Constraint parsing: duration filters, language detection, intent matching, title similarity.
-* Interactive chat interface with typing animation and rich interactive title cards inside bot responses.
-* Zero-dependency local NLP engine with plug-and-play support for external LLM APIs (OpenAI/Gemini).
-
-### 3. Emotional Mood Explorer
-* 10 distinct interactive mood states:
-  * 😊 **Happy**: Feel-good comedies, bright animated journeys, joyful music.
-  * 😢 **Emotional**: Heartfelt dramas, poignant cinema, moving soundtracks.
-  * 🔥 **Excited**: High-octane action, mind-bending sci-fi, intense anime.
-  * 😌 **Relaxed**: Soothing music, calm podcasts, peaceful slice-of-life.
-  * 😱 **Scared**: Chilling horror, jump-scares, psychological thrillers.
-  * ❤️ **Romantic**: Heartwarming love stories and romantic serenades.
-  * 🧠 **Curious**: Quantum mysteries, true-crime investigations, documentaries.
-  * ⚡ **Energetic**: High-tempo club anthems and fast-paced spectacles.
-  * 🌙 **Lonely**: Solitary late-night companion podcasts and introspective cinema.
-  * 😂 **Funny**: Non-stop laughs, witty satires, and stand-up specials.
-
-### 4. Complete User Experience & Dashboard
-* **Personalized Dashboard**: "Continue Watching" progress row, "Because you like [Genre]", "Trending Now", "Recommended for You".
-* **Viewing Analytics Charts**: Rendered with Chart.js (Genre breakdown donut chart, Format distribution bar chart, streaks).
-* **Discover Catalog**: Multi-facet filter sidebar (Genre, Language, Year, Min Rating, Mood, Type) + live debounced search + sorting.
-* **Rich Content Details**: Full backdrop banner, trailer modal (YouTube embed), 1–5 star interactive rater, review submission, and "More Like This" carousel.
-* **Persistent Watchlist**: Add/remove, mark as watched, filter by status, sort, and search.
-* **Watch History Tracking**: Automatic progress logging, resume playback, remove single record, clear all history.
-* **User Profile & Settings**: Working profile editor, theme switcher (Dark / Light mode), password updater, and account deletion.
-
-### 5. Secure Admin Dashboard & CMS
-* **Real-time Analytics**: Total users, active accounts, total titles, review count, watchlist saves.
-* **User Management**: Search user accounts, toggle active/disabled status, delete accounts.
-* **Content Management CMS**: Add new titles, edit existing metadata, delete titles.
-* **Review Moderation**: View all community reviews and remove inappropriate comments.
+The platform combines an intelligent recommendation engine with a conversational AI assistant, mood-based discovery, personalized dashboards, watchlists, viewing history, ratings, reviews, and an administrative content management system.
 
 ---
 
-## 🔑 Demo Accounts
+## ✨ Highlights
 
-For immediate testing, two fully seeded accounts are provided out of the box:
-
-| Role | Email | Username | Password |
-| :--- | :--- | :--- | :--- |
-| **Standard User** | `demo@cinemind.ai` | `demouser` | `Demo@123` |
-| **Administrator** | `admin@cinemind.ai` | `admin` | `Admin@123` |
-
-*(Quick-fill buttons are also embedded directly on the login page for 1-click access!)*
-
----
-
-## 🛠️ Technology Stack
-
-### Frontend
-* **HTML5**: Clean semantic markup across 17 responsive views.
-* **CSS3**: Modern CSS variables, glassmorphism, responsive breakpoints (360px, 480px, 768px, 1024px, 1440px, 1920px), CSS animations.
-* **Vanilla JavaScript**: Modular ES6 classes, Fetch API client, JWT session handling, toast notifications.
-* **Chart.js**: Interactive canvas charts for viewing habits and administrative analytics.
-
-### Backend
-* **Node.js & Express.js (v5)**: RESTful API architecture.
-* **JWT (JSON Web Tokens)**: Secure token-based authentication.
-* **bcryptjs**: Password hashing (salt rounds = 10).
-* **CORS & dotenv**: Cross-origin resource sharing and environment management.
-
-### Database & Persistence
-* **Dual-Mode Data Architecture**:
-  1. **MongoDB / Mongoose ODM**: Automatically used when `MONGODB_URI` is supplied and reachable.
-  2. **Embedded JSON Persistence Store**: Automatically active when MongoDB is not running, ensuring 100% data persistence in `server/data/*.json` without requiring external database installation.
+* 🤖 **AI-powered personalized recommendations**
+* 💬 **Conversational CineMind AI Assistant**
+* 🎭 **Mood-based entertainment discovery**
+* 🔎 **Advanced search and multi-factor filtering**
+* 🎯 **Personalized user dashboard**
+* ❤️ **Watchlist and favorites**
+* 📺 **Watch history and progress tracking**
+* ⭐ **Ratings and reviews**
+* 📊 **Viewing and platform analytics**
+* 🛠️ **Admin dashboard and content management**
+* 🔐 **JWT-based authentication**
+* 🌙 **Dark / Light theme support**
+* 📱 **Responsive cinematic user interface**
+* 💾 **MongoDB + persistent JSON fallback storage**
 
 ---
 
-## 📁 Project Structure
+## 🚀 Core Features
+
+### 🤖 AI Recommendation Engine
+
+CineMind AI uses a multi-factor recommendation system to calculate how well each entertainment title matches a user's preferences.
+
+The recommendation score considers factors such as:
+
+* Genre preference
+* Language preference
+* Content type
+* Rating preference
+* Watch history
+* Favorite content
+* Mood compatibility
+* Popularity
+* Similarity with previously watched content
+
+Each recommendation can also provide an explanation of **why the title was recommended**.
+
+---
+
+### 💬 CineMind AI Assistant
+
+The built-in conversational assistant allows users to discover entertainment using natural-language requests.
+
+Example queries:
 
 ```text
-AI Entertainment Discovery Platform/
+Recommend a thriller under 2 hours
+```
+
+```text
+Suggest Tamil movies
+```
+
+```text
+What should I watch if I liked Interstellar?
+```
+
+```text
+Recommend anime similar to Naruto
+```
+
+```text
+Suggest something directed by Christopher Nolan
+```
+
+The assistant can identify:
+
+* Genres
+* Languages
+* Content types
+* Runtime constraints
+* Actors
+* Directors
+* Specific titles
+* Similar-content requests
+* Family-friendly content
+* General recommendation requests
+
+The system includes a local NLP-based recommendation engine and supports integration with external AI APIs.
+
+---
+
+### 🎭 Mood Explorer
+
+Users can discover content based on their current mood.
+
+Available moods include:
+
+| Mood         | Example Content                    |
+| ------------ | ---------------------------------- |
+| 😊 Happy     | Comedy, Animation, Feel-good       |
+| 😢 Emotional | Drama, Romance                     |
+| 🔥 Excited   | Action, Sci-Fi, Thriller           |
+| 😌 Relaxed   | Calm Music, Documentary            |
+| 😱 Scared    | Horror, Mystery, Thriller          |
+| ❤️ Romantic  | Romance, Drama                     |
+| 🧠 Curious   | Mystery, Sci-Fi, Documentary       |
+| ⚡ Energetic  | Action, Music, Adventure           |
+| 🌙 Lonely    | Drama, Romance, Reflective content |
+| 😂 Funny     | Comedy, Stand-up, Humorous content |
+
+---
+
+### 🏠 Personalized Dashboard
+
+The dashboard provides a centralized view of the user's entertainment activity.
+
+It includes:
+
+* Continue Watching
+* Recommended for You
+* Trending Content
+* Personalized suggestions
+* Genre statistics
+* Content-type statistics
+* Viewing activity
+* Watch progress
+* Personalized entertainment insights
+
+Interactive charts are used to visualize viewing behavior.
+
+---
+
+### 🔎 Discover & Search
+
+The Discover section provides powerful content exploration tools.
+
+Users can filter content using:
+
+* Genre
+* Language
+* Release year
+* Minimum rating
+* Mood
+* Content type
+* Search keywords
+* Sorting options
+
+The platform also supports live search and categorized content discovery.
+
+---
+
+### 🎬 Content Details
+
+Every entertainment title has a dedicated details page containing information such as:
+
+* Title
+* Description
+* Genres
+* Language
+* Release year
+* Runtime
+* Rating
+* Cast
+* Director
+* Trailer
+* Reviews
+* User rating
+* Similar content
+
+Users can also add titles to their watchlist and submit ratings/reviews.
+
+---
+
+### ❤️ Watchlist
+
+Users can maintain their personal entertainment collection.
+
+Watchlist functionality includes:
+
+* Add content
+* Remove content
+* Mark as watched
+* Filter watchlist
+* Search saved titles
+* Sort saved content
+
+---
+
+### 📺 Watch History
+
+The platform tracks viewing activity and allows users to:
+
+* Resume content
+* Track viewing progress
+* Mark content as completed
+* Remove individual history entries
+* Clear viewing history
+
+---
+
+### ⭐ Ratings & Reviews
+
+Users can rate content from **1 to 5 stars** and submit reviews.
+
+The platform supports:
+
+* Star ratings
+* Review submission
+* Average rating calculation
+* Community feedback
+* Review moderation through the admin panel
+
+---
+
+### 👤 User Profile & Settings
+
+Users can manage:
+
+* Profile information
+* Favorite genres
+* Preferred languages
+* Preferred content types
+* Password
+* Theme preference
+* Privacy settings
+* Account deletion
+
+---
+
+### 🛠️ Admin Dashboard
+
+Administrators receive access to a dedicated management dashboard.
+
+Admin features include:
+
+#### 📊 Analytics
+
+* Total users
+* Active users
+* Total entertainment titles
+* Number of reviews
+* Watchlist activity
+
+#### 👥 User Management
+
+* Search users
+* View accounts
+* Activate/deactivate users
+* Delete users
+
+#### 🎬 Content Management
+
+* Add titles
+* Edit title information
+* Delete content
+* Manage entertainment metadata
+
+#### ⭐ Review Moderation
+
+* View reviews
+* Monitor community feedback
+* Remove inappropriate reviews
+
+---
+
+# 🧠 Recommendation Architecture
+
+CineMind AI calculates a personalized score using multiple recommendation factors.
+
+```text
+                ┌─────────────────────┐
+                │   User Preferences   │
+                └──────────┬──────────┘
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │ Recommendation      │
+                │ Engine              │
+                └──────────┬──────────┘
+                           │
+       ┌───────────────────┼────────────────────┐
+       │                   │                    │
+       ▼                   ▼                    ▼
+   Genre Match        Language Match       Type Match
+       │                   │                    │
+       └───────────────────┼────────────────────┘
+                           │
+       ┌───────────────────┼────────────────────┐
+       │                   │                    │
+       ▼                   ▼                    ▼
+ Watch History       Rating Preference      Mood Match
+       │                   │                    │
+       └───────────────────┼────────────────────┘
+                           │
+                           ▼
+                  ┌─────────────────┐
+                  │ Final AI Score  │
+                  └────────┬────────┘
+                           │
+                           ▼
+                  Personalized Results
+```
+
+This approach allows recommendations to adapt to the user's interests and entertainment behavior.
+
+---
+
+# 🛠️ Technology Stack
+
+## Frontend
+
+* **HTML5**
+* **CSS3**
+* **JavaScript (ES6+)**
+* **Fetch API**
+* **Chart.js**
+* Responsive CSS
+* Glassmorphism / cinematic UI design
+
+The frontend is built using **vanilla HTML, CSS, and JavaScript without React or other frontend frameworks**.
+
+---
+
+## Backend
+
+* **Node.js**
+* **Express.js**
+* **REST API**
+* **JWT Authentication**
+* **bcryptjs**
+* **CORS**
+* **dotenv**
+
+---
+
+## Database & Storage
+
+The application supports two persistence modes:
+
+### MongoDB
+
+When a valid `MONGODB_URI` is provided, the application uses:
+
+* MongoDB
+* Mongoose
+
+### JSON Persistence Fallback
+
+When MongoDB is unavailable, CineMind AI can use its built-in persistent JSON storage system.
+
+This allows the project to run locally without requiring a separate database installation.
+
+---
+
+# 📁 Project Structure
+
+```text
+AI-Entertainment-Discovery-Platform/
 │
 ├── client/
-│   ├── index.html                # Public Landing Page
-│   ├── login.html                # Login Page (with 1-click demo fill)
-│   ├── register.html             # Multi-step Preference Registration
-│   ├── forgot-password.html      # Password Recovery Flow
-│   ├── about.html                # Platform & AI Technology Overview
-│   ├── contact.html              # Contact & Support Form
-│   ├── dashboard.html            # User Dashboard with Chart.js Stats
-│   ├── discover.html             # Multi-Facet Filter Catalog
-│   ├── recommendations.html      # AI Scoring Hub & Breakdown Modal
-│   ├── details.html              # Content Details, Trailer Modal & Reviews
-│   ├── watchlist.html            # Watchlist Management
-│   ├── history.html              # Watch History with Progress Tracking
-│   ├── mood.html                 # 10-Mood Emotion Explorer
-│   ├── assistant.html            # CineMind AI Conversational Chat
-│   ├── profile.html              # User Profile & Preference Editor
-│   ├── settings.html             # Password, Themes & Privacy
-│   ├── admin.html                # Admin Panel, CMS & Analytics
+│   ├── index.html
+│   ├── login.html
+│   ├── register.html
+│   ├── forgot-password.html
+│   ├── about.html
+│   ├── contact.html
+│   ├── dashboard.html
+│   ├── discover.html
+│   ├── recommendations.html
+│   ├── details.html
+│   ├── watchlist.html
+│   ├── history.html
+│   ├── mood.html
+│   ├── assistant.html
+│   ├── profile.html
+│   ├── settings.html
+│   ├── admin.html
 │   │
 │   ├── css/
-│   │   ├── style.css             # Base styles, cinematic dark theme, typography
-│   │   ├── components.css        # Cards, modals, buttons, toasts, skeletons
-│   │   └── responsive.css        # Media queries (360px to 1920px)
+│   │   ├── style.css
+│   │   ├── components.css
+│   │   └── responsive.css
+│   │
+│   ├── images/
+│   │   └── content/
 │   │
 │   └── js/
-│       ├── api.js                # Centralized Fetch API client with JWT
-│       ├── auth.js               # Auth manager, route guards, demo auto-fill
-│       ├── common.js             # Shared navbar, mobile drawer, toasts, trailer
-│       ├── landing.js            # Landing page carousels and previews
-│       ├── dashboard.js          # Dashboard feeds and Chart.js charts
-│       ├── discover.js           # Multi-facet filters, search, pagination
-│       ├── recommendations.js    # AI score badges & breakdown modal
-│       ├── details.js            # Content renderer, star rater, reviews
-│       ├── watchlist.js          # Watchlist CRUD & mark-watched
-│       ├── history.js            # History CRUD & timeline
-│       ├── mood.js               # Mood grid and dynamic query engine
-│       ├── assistant.js          # AI conversational assistant logic
-│       ├── profile.js            # Profile rendering & preference updates
-│       ├── settings.js           # Theme toggle, password update, privacy
-│       └── admin.js              # CMS, user management, and metrics
+│       ├── api.js
+│       ├── auth.js
+│       ├── common.js
+│       ├── landing.js
+│       ├── dashboard.js
+│       ├── discover.js
+│       ├── details.js
+│       ├── recommendations.js
+│       ├── watchlist.js
+│       ├── history.js
+│       ├── mood.js
+│       ├── assistant.js
+│       ├── profile.js
+│       ├── settings.js
+│       └── admin.js
 │
 ├── server/
-│   ├── server.js                 # Express server & static serving
+│   ├── server.js
+│   │
 │   ├── config/
-│   │   ├── db.js                 # Dual-mode DB connector
-│   │   └── storage.js            # Embedded persistent JSON database engine
-│   ├── models/
-│   │   ├── User.js               # User model & auth methods
-│   │   ├── Content.js            # Entertainment content model
-│   │   ├── Rating.js             # Ratings & reviews model
-│   │   ├── WatchHistory.js       # Watch history model
-│   │   └── SearchHistory.js      # Search history model
+│   │   ├── db.js
+│   │   └── storage.js
+│   │
 │   ├── controllers/
-│   │   ├── authController.js     # Auth endpoints
-│   │   ├── userController.js     # User profile & preferences
-│   │   ├── contentController.js  # Catalog filtering & details
-│   │   ├── searchController.js   # Universal search & suggestions
-│   │   ├── recommendController.js# AI recommendations & mood
-│   │   ├── watchlistController.js# Watchlist management
-│   │   ├── historyController.js  # History tracking
-│   │   ├── ratingController.js   # Star rating & reviews
-│   │   ├── assistantController.js# Conversational assistant
-│   │   └── adminController.js    # Admin CMS & analytics
+│   │   ├── authController.js
+│   │   ├── userController.js
+│   │   ├── contentController.js
+│   │   ├── searchController.js
+│   │   ├── recommendController.js
+│   │   ├── watchlistController.js
+│   │   ├── historyController.js
+│   │   ├── ratingController.js
+│   │   ├── assistantController.js
+│   │   └── adminController.js
+│   │
 │   ├── middleware/
-│   │   ├── auth.js               # JWT protection & optional auth
-│   │   ├── admin.js              # Admin authorization guard
-│   │   └── errorHandler.js       # Centralized error handler
+│   │   ├── auth.js
+│   │   ├── admin.js
+│   │   └── errorHandler.js
+│   │
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Content.js
+│   │   ├── Rating.js
+│   │   ├── WatchHistory.js
+│   │   └── SearchHistory.js
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── userRoutes.js
+│   │   ├── contentRoutes.js
+│   │   ├── searchRoutes.js
+│   │   ├── recommendRoutes.js
+│   │   ├── watchlistRoutes.js
+│   │   ├── historyRoutes.js
+│   │   ├── ratingRoutes.js
+│   │   ├── assistantRoutes.js
+│   │   └── adminRoutes.js
+│   │
 │   ├── services/
-│   │   ├── recommendationService.js # 9-factor AI algorithm
-│   │   ├── aiService.js          # NLP intent processor & fallback
-│   │   └── contentService.js     # Unified query abstraction
+│   │   ├── recommendationService.js
+│   │   ├── aiService.js
+│   │   └── contentService.js
+│   │
+│   ├── data/
+│   │   ├── content.json
+│   │   ├── users.json
+│   │   ├── ratings.json
+│   │   ├── search_history.json
+│   │   └── watch_history.json
+│   │
 │   ├── seed/
-│   │   └── seeder.js             # Database populator (93 titles + demo users)
-│   └── test-api.js               # Automated API verification test suite
+│   │   └── seeder.js
+│   │
+│   └── test-api.js
 │
-├── .env                          # Environment variables
 ├── .env.example
+├── .gitignore
+├── LICENSE
 ├── package.json
 └── README.md
 ```
 
 ---
 
-## 🚀 Installation & Running
+# ⚙️ Installation & Setup
 
-### Prerequisites
-* **Node.js**: v18.0.0 or later installed on your system.
-* *(Optional)* MongoDB running locally or a MongoDB Atlas URI. If not available, the application automatically uses the embedded persistent JSON database.
+## 1. Clone the Repository
 
-### 1. Install Dependencies
 ```bash
-cd "E:\Projects\AI Entertainment Discovery Platform"
+git clone https://github.com/Hariezwar/AI-Entertainment-Discovery-Platform.git
+cd AI-Entertainment-Discovery-Platform
+```
+
+---
+
+## 2. Install Dependencies
+
+```bash
 npm install
 ```
 
-### 2. Configure Environment Variables
-Verify `.env` has the desired configuration:
+---
+
+## 3. Configure Environment Variables
+
+Create a `.env` file in the project root.
+
 ```env
 PORT=5000
 MONGODB_URI=
-JWT_SECRET=cinemind_super_secret_jwt_key_2026_entertainment_discovery
+JWT_SECRET=your_secure_jwt_secret
 JWT_EXPIRE=7d
 AI_API_KEY=
 NODE_ENV=development
 ```
-*(Leave `MONGODB_URI` blank to use the embedded JSON store, or provide your MongoDB connection string to use MongoDB).*
 
-### 3. Seed Database
-Populate the 93 curated titles, demo accounts, ratings, and watch history:
+### Configuration
+
+| Variable      | Purpose                            |
+| ------------- | ---------------------------------- |
+| `PORT`        | Server port                        |
+| `MONGODB_URI` | MongoDB connection string          |
+| `JWT_SECRET`  | Secret used for JWT authentication |
+| `JWT_EXPIRE`  | JWT expiration duration            |
+| `AI_API_KEY`  | Optional external AI API key       |
+| `NODE_ENV`    | Application environment            |
+
+> Never commit your actual `.env` file or private API keys to GitHub.
+
+---
+
+# 🌱 Seed the Application
+
+Populate the application with sample entertainment data and demo accounts:
+
 ```bash
 npm run seed
 ```
 
-### 4. Run Automated Test Suite
-Verify that all core REST APIs, JWT authentication, recommendations, and search work properly:
+The project also contains automatic startup seeding support when the content database is empty.
+
+---
+
+# ▶️ Run the Application
+
+Start the backend and frontend server:
+
+```bash
+npm start
+```
+
+Open:
+
+```text
+http://localhost:5000
+```
+
+The Express server serves the frontend directly from the `client` directory.
+
+---
+
+# 🧪 Test the API
+
+Run the included API verification suite:
+
 ```bash
 npm test
 ```
 
-### 5. Launch Application
-Start the CineMind AI server:
-```bash
-npm start
+The test suite verifies important platform functionality such as:
+
+* API availability
+* Authentication
+* Content retrieval
+* Recommendations
+* Search
+* User functionality
+* Core backend services
+
+---
+
+# 🔐 Demo Accounts
+
+For testing the application, the project includes demo accounts.
+
+### 👤 Standard User
+
+```text
+Email: demo@cinemind.ai
+Password: Demo@123
 ```
-Then open your web browser at:
-👉 **[http://localhost:5000](http://localhost:5000)**
+
+### 🛡️ Administrator
+
+```text
+Email: admin@cinemind.ai
+Password: Admin@123
+```
+
+> These credentials are intended for local development and demonstration purposes.
 
 ---
 
-## 🧪 Comprehensive Verification Checklist
+# 🔗 API Overview
 
-| Test Flow | Expected Behavior | Status |
-| :--- | :--- | :--- |
-| **Health API** | Returns `200 OK` with CineMind platform metadata | ✅ Passed |
-| **User Login** | `demo@cinemind.ai` / `Demo@123` returns JWT token & user profile | ✅ Passed |
-| **Admin Login** | `admin@cinemind.ai` / `Admin@123` unlocks Admin Portal | ✅ Passed |
-| **Registration** | Creates account with favorite genres, languages & formats | ✅ Passed |
-| **AI Scoring** | Calculates composite score and factor breakdown | ✅ Passed |
-| **AI Assistant** | "Recommend a thriller under 2 hours" returns filtered titles | ✅ Passed |
-| **Mood Explorer** | Clicking 😊 Happy, 😢 Emotional, 🔥 Excited returns mood titles | ✅ Passed |
-| **Watchlist** | Adding / removing titles updates state in database | ✅ Passed |
-| **Watch History** | Tracks percentage progress and completion | ✅ Passed |
-| **Ratings & Reviews**| 1 to 5 star rating submission recalculates averages | ✅ Passed |
-| **Admin Panel** | Displays real-time metrics, user status toggles, and content CMS | ✅ Passed |
+The backend exposes RESTful API endpoints under:
+
+```text
+/api
+```
+
+Main API modules include:
+
+```text
+/api/auth
+/api/users
+/api/content
+/api/search
+/api/recommendations
+/api/watchlist
+/api/history
+/api/ratings
+/api/assistant
+/api/admin
+```
+
+Health check:
+
+```text
+GET /api/health
+```
 
 ---
 
-## 💡 License
-This project is created for evaluation and demonstration of advanced AI entertainment discovery architecture.
+# 🔒 Security
+
+CineMind AI includes several security mechanisms:
+
+* JWT-based authentication
+* Password hashing using bcrypt
+* Protected API routes
+* Admin authorization middleware
+* Environment-based secret configuration
+* Centralized error handling
+* CORS support
+
+---
+
+# 🎯 Use Cases
+
+CineMind AI can be used for:
+
+* Personalized movie discovery
+* Entertainment recommendation systems
+* AI-based content discovery
+* Movie and TV show catalog applications
+* Recommendation system demonstrations
+* AI/NLP academic projects
+* Full-stack development portfolios
+* Entertainment technology prototypes
+
+---
+
+# 📈 Future Enhancements
+
+Potential future improvements include:
+
+* Integration with live entertainment APIs
+* Advanced machine-learning recommendation models
+* Real-time streaming platform availability
+* Smarter semantic search
+* Voice-based entertainment assistant
+* User-to-user recommendation sharing
+* Social profiles and following
+* Real-time notifications
+* Cloud deployment and scalable database infrastructure
+* Advanced external LLM integration
+
+---
+
+# 🌟 Why CineMind AI?
+
+Traditional entertainment platforms often require users to browse through thousands of titles before finding something relevant.
+
+CineMind AI focuses on a more personalized discovery experience by combining:
+
+```text
+User Preferences
+       +
+Viewing History
+       +
+Ratings
+       +
+Mood
+       +
+Content Metadata
+       +
+AI/NLP Understanding
+       ↓
+Personalized Entertainment Discovery
+```
+
+The goal is simple:
+
+> **Spend less time searching. Spend more time enjoying.**
+
+---
+
+# 📌 Project Information
+
+**Project Name:** AI Entertainment Discovery Platform
+**Platform Name:** CineMind AI
+**Project Type:** Full-Stack Web Application
+**Domain:** Artificial Intelligence / Entertainment Technology
+**Frontend:** HTML, CSS, JavaScript
+**Backend:** Node.js, Express.js
+**Database:** MongoDB / JSON Persistence
+**Authentication:** JWT + bcrypt
+**License:** ISC
+
+---
+
+# 👨‍💻 Author
+
+**Sanjana Sri Y**
+
+
+---
+
+# 📄 License
+
+This project is licensed under the **ISC License**.
+
+---
+
+<p align="center">
+
+### 🎬 CineMind AI
+
+**Discover what you'll love next.**
+
+⭐ Star the repository if you found this project interesting!
+
+</p>
