@@ -143,13 +143,13 @@ Share your experience and help improve the community.
 
 Everything you need in one place:
 
-| 🎯 Recommendations |
-🔥 Trending Content
-▶️ Continue Watching
-❤️ Watchlist
-📺 Watch History
-📈 Viewing Statistics
-🧠 Personalized Insights
+* 🎯 Recommendations
+* 🔥 Trending Content
+* ▶️ Continue Watching
+* ❤️ Watchlist
+* 📺 Watch History
+* 📈 Viewing Statistics
+* 🧠 Personalized Insights
 
 ---
 
@@ -159,10 +159,7 @@ Administrators can manage the entire platform.
 
 #### 📊 Analytics
 
-* 👥 User statistics
-* 🎬 Content statistics
-* ⭐ Review statistics
-* 📈 Platform activity
+| 👥 User statistics | 🎬 Content statistics | ⭐ Review statistics | 📈 Platform activity |
 
 #### 👥 User Management
 
