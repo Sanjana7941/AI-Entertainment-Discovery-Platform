@@ -269,6 +269,13 @@ CineMind AI includes:
 
 ---
 
+
+## 🎥 Prototype Video 
+
+
+
+---
+
 ## 📄 License
 
 This project is licensed under the MIT License
