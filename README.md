@@ -159,27 +159,19 @@ Administrators can manage the entire platform.
 
 #### 📊 Analytics
 
-| 👥 User statistics | 🎬 Content statistics | ⭐ Review statistics | 📈 Platform activity |
+|  👥 User statistics  |  🎬 Content statistics  |  ⭐ Review statistics  |  📈 Platform activity  |
 
 #### 👥 User Management
 
-* 🔎 Search users
-* 👁️ View user accounts
-* ✅ Activate / deactivate accounts
-* 🗑️ Delete users
+|  🔎 Search users  |  👁️ View user accounts  |  ✅ Activate / deactivate accounts  |  🗑️ Delete users  |
 
 #### 🎬 Content Management
 
-* ➕ Add content
-* ✏️ Edit content
-* 🗑️ Delete content
-* 📚 Manage metadata
+|  ➕ Add content  |  ✏️ Edit content  |  🗑️ Delete content  |  📚 Manage metadata  |
 
 #### ⭐ Review Moderation
 
-* 👀 View reviews
-* 🛡️ Moderate reviews
-* 🗑️ Remove inappropriate reviews
+|  👀 View reviews  |  🛡️ Moderate reviews  |  🗑️ Remove inappropriate reviews  |
 
 ---
 
@@ -250,115 +242,6 @@ Administrators can manage the entire platform.
 
 ---
 
-## 📁 Project Structure
-
-```text
-🎬 AI-Entertainment-Discovery-Platform/
-│
-├── 📂 client/
-│   ├── 🏠 index.html
-│   ├── 🔐 login.html
-│   ├── 📝 register.html
-│   ├── 📊 dashboard.html
-│   ├── 🔎 discover.html
-│   ├── 🤖 assistant.html
-│   ├── 🎭 mood.html
-│   ├── 🎬 details.html
-│   ├── ❤️ watchlist.html
-│   ├── 📺 history.html
-│   ├── 👤 profile.html
-│   ├── ⚙️ settings.html
-│   └── 🛡️ admin.html
-│
-├── 📂 server/
-│   ├── 🚀 server.js
-│   ├── 📂 config/
-│   ├── 📂 controllers/
-│   ├── 📂 middleware/
-│   ├── 📂 models/
-│   ├── 📂 routes/
-│   ├── 📂 services/
-│   ├── 📂 data/
-│   └── 📂 seed/
-│
-├── ⚙️ package.json
-├── 🔐 .env.example
-├── 🚫 .gitignore
-├── 📄 LICENSE
-└── 📖 README.md
-```
-
----
-
-## ⚡ Installation & Setup
-
-### 1️⃣ Clone the Repository
-
-```bash
-git clone https://github.com/Hariezwar/AI-Entertainment-Discovery-Platform.git
-cd AI-Entertainment-Discovery-Platform
-```
-
-### 2️⃣ Install Dependencies
-
-```bash
-npm install
-```
-
-### 3️⃣ Configure Environment Variables
-
-Create a `.env` file:
-
-```env
-PORT=5000
-MONGODB_URI=
-JWT_SECRET=your_secure_jwt_secret
-JWT_EXPIRE=7d
-AI_API_KEY=
-NODE_ENV=development
-```
-
-⚠️ **Never commit your `.env` file or API keys to GitHub.**
-
-### 4️⃣ Seed Demo Data 🌱
-
-```bash
-npm run seed
-```
-
-### 5️⃣ Start the Application 🚀
-
-```bash
-npm start
-```
-
-Open:
-
-```text
-🌐 http://localhost:5000
-```
-
----
-
-## 🧪 Testing
-
-Run:
-
-```bash
-npm test
-```
-
-The tests verify important backend functionality such as:
-
-✅ API availability
-✅ Authentication
-✅ Content APIs
-✅ Recommendations
-✅ Search
-✅ User functionality
-
----
-
 ## 🔐 Security
 
 CineMind AI includes:
@@ -401,64 +284,17 @@ CineMind AI includes:
 
 ---
 
-## 💡 Project Vision
+## 📄 License
 
-Traditional entertainment platforms can make users spend a lot of time searching for something interesting.
-
-**CineMind AI aims to change that.**
-
-```text
-👤 User
-   ↓
-❤️ Preferences
-   ↓
-📺 Viewing History
-   ↓
-⭐ Ratings
-   ↓
-🎭 Mood
-   ↓
-💬 Natural Language Request
-   ↓
-🤖 AI Understanding
-   ↓
-🎬 Personalized Discovery
-```
-
-> 🍿 **Less searching. Less scrolling. More watching.**
+This project is licensed under the MIT License
 
 ---
 
 ## 👨‍💻 Author
 
-### **Sanjana Sri Y **
-
-
----
-
-## ⭐ Support
-
-If you found this project interesting:
-
-⭐ Star the repository
-🍴 Fork the project
-🐛 Report issues
-💡 Share suggestions
-🤝 Contribute
+Sanjana Sri Y 
 
 ---
-
-<p align="center">
-
-# 🎬 CineMind AI
-
-### 🤖 Discover What You'll Love Next.
-
-**Built with ❤️, AI & JavaScript**
-
-🍿 🎬 🤖 🎭 ⭐ 🎵 📺 ❤️
-
-</p>
 
 <p align="center">
 <i>✨ Turning entertainment discovery into an intelligent experience. ✨</i>
