@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Discover Entertainment – CineMind AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container">
+      <!-- HEADER -->
+      <div style="margin-bottom: 32px;">
+        <h1 style="font-size: 2.4rem; margin-bottom: 8px;">Explore <span class="text-gradient">Catalog</span></h1>
+        <p style="color: var(--text-muted); font-size: 1rem;">
+          Filter through 80+ curated movies, series, anime, and music albums with multi-facet refinement.
+        </p>
+      </div>
+
+      <!-- TYPE FILTER PILLS BAR -->
+      <div style="display: flex; gap: 10px; overflow-x: auto; padding-bottom: 16px; margin-bottom: 24px; scrollbar-width: none;">
+        <button class="chip-option type-filter-pill selected" data-type="all">All Formats</button>
+        <button class="chip-option type-filter-pill" data-type="Movie">🎬 Movies</button>
+        <button class="chip-option type-filter-pill" data-type="TV Show">📺 TV Shows</button>
+        <button class="chip-option type-filter-pill" data-type="Web Series">🌐 Web Series</button>
+        <button class="chip-option type-filter-pill" data-type="Anime">⚡ Anime</button>
+        <button class="chip-option type-filter-pill" data-type="Music">🎵 Music</button>
+      </div>
+
+      <!-- DISCOVER LAYOUT (Sidebar Filters + Results Grid) -->
+      <div class="discover-layout" style="display: grid; grid-template-columns: 280px 1fr; gap: 32px; align-items: flex-start;">
+        <!-- FILTER SIDEBAR -->
+        <aside class="filter-sidebar" style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 24px; position: sticky; top: 96px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="font-size: 1.15rem; font-weight: 700;">Filter Results</h3>
+            <button id="reset-filters-btn" style="background: none; border: none; color: var(--accent-secondary); font-size: 0.82rem; font-weight: 600; cursor: pointer;">
+              Reset All
+            </button>
+          </div>
+
+          <!-- Live Search Input -->
+          <div class="form-group">
+            <label class="form-label" for="discover-search">Keyword Search</label>
+            <input type="text" id="discover-search" class="form-input" placeholder="Title, cast, director..." />
+          </div>
+
+          <!-- Genre Filter -->
+          <div class="form-group">
+            <label class="form-label" for="filter-genre">Genre</label>
+            <select id="filter-genre" class="form-select">
+              <option value="all">All Genres</option>
+            </select>
+          </div>
+
+          <!-- Language Filter -->
+          <div class="form-group">
+            <label class="form-label" for="filter-language">Language</label>
+            <select id="filter-language" class="form-select">
+              <option value="all">All Languages</option>
+            </select>
+          </div>
+
+          <!-- Mood Filter -->
+          <div class="form-group">
+            <label class="form-label" for="filter-mood">Emotional Mood</label>
+            <select id="filter-mood" class="form-select">
+              <option value="all">All Moods</option>
+            </select>
+          </div>
+
+          <!-- Release Year Filter -->
+          <div class="form-group">
+            <label class="form-label" for="filter-year">Release Year</label>
+            <select id="filter-year" class="form-select">
+              <option value="all">All Years</option>
+            </select>
+          </div>
+
+          <!-- Minimum Rating Slider -->
+          <div class="form-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <label class="form-label" for="filter-min-rating" style="margin: 0;">Min Rating</label>
+              <span id="min-rating-val" style="font-size: 0.85rem; font-weight: 700; color: var(--star-gold);">Any</span>
+            </div>
+            <input type="range" id="filter-min-rating" min="0" max="9.5" step="0.5" value="0" style="width: 100%; accent-color: var(--accent-primary);" />
+          </div>
+
+          <!-- Sort Selector -->
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label" for="filter-sort">Sort By</label>
+            <select id="filter-sort" class="form-select">
+              <option value="popularity-desc">Most Popular</option>
+              <option value="rating-desc">Highest Rated</option>
+              <option value="releaseYear-desc">Newest First</option>
+              <option value="title-asc">Title (A - Z)</option>
+            </select>
+          </div>
+        </aside>
+
+        <!-- MAIN RESULTS CONTAINER -->
+        <section>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <span id="discover-count" style="font-size: 0.95rem; color: var(--text-muted); font-weight: 600;">
+              Loading catalog...
+            </span>
+          </div>
+
+          <!-- Results Grid -->
+          <div class="content-grid" id="discover-results-grid">
+            <!-- Populated by discover.js -->
+          </div>
+
+          <!-- Pagination -->
+          <div id="pagination-container"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/discover.js"></script>
+</body>
+</html>

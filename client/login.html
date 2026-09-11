@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Procedural Sign In – CineMind AI Entertainment Platform</title>
+  <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <style>
+    .login-wrapper {
+      min-height: calc(100vh - 160px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    .login-container {
+      width: 100%;
+      max-width: 1040px;
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      background: rgba(10, 15, 38, 0.85);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.85),
+                  0 0 50px rgba(99, 102, 241, 0.15),
+                  inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      position: relative;
+      z-index: 2;
+    }
+    @media (max-width: 890px) {
+      .login-container {
+        grid-template-columns: 1fr;
+        max-width: 490px;
+      }
+      .login-sidebar {
+        display: none;
+      }
+    }
+    .login-sidebar {
+      background: linear-gradient(155deg, rgba(20, 27, 56, 0.85) 0%, rgba(10, 14, 30, 0.95) 100%);
+      padding: 46px 38px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid rgba(255, 255, 255, 0.08);
+      position: relative;
+    }
+    .login-sidebar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://image.tmdb.org/t/p/w1280/xJHokMbljvjADYdit5fK5VQsXEG.jpg') center/cover;
+      opacity: 0.09;
+      pointer-events: none;
+    }
+    .login-main {
+      padding: 44px 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .feature-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+    .feature-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(99, 102, 241, 0.16);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      flex-shrink: 0;
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+    }
+    .fast-creds-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .fast-cred-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 10px 14px;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: left;
+    }
+    .fast-cred-card:hover {
+      background: rgba(99, 102, 241, 0.14);
+      border-color: rgba(99, 102, 241, 0.45);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(99, 102, 241, 0.22);
+    }
+    .fast-cred-card.active {
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(6, 182, 212, 0.2));
+      border-color: #6366f1;
+      box-shadow: 0 0 16px rgba(99, 102, 241, 0.3);
+    }
+    .status-ring {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 8px #10b981;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main class="login-wrapper">
+    <div class="login-container">
+      <!-- LEFT CINEMATIC PROMO SIDEBAR -->
+      <div class="login-sidebar">
+        <div style="position: relative; z-index: 2;">
+          <div style="margin-bottom: 24px;">
+            <img src="/images/cinemind-logo.svg" alt="CineMind AI" class="brand-logo-img" style="height: 44px;" />
+          </div>
+
+          <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.35); padding: 5px 12px; border-radius: var(--radius-full); font-size: 0.78rem; font-weight: 700; color: #c7d2fe; margin-bottom: 20px;">
+            <span class="status-ring"></span> Procedural Login Flow
+          </div>
+          <h2 style="font-size: 1.95rem; font-weight: 800; line-height: 1.25; margin-bottom: 14px;">
+            Procedural <span class="text-gradient">Security</span> Shield.
+          </h2>
+          <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 30px;">
+            Experience CineMind's multi-stage authentication pipeline designed to isolate and safeguard your taste profile.
+          </p>
+
+          <div class="feature-point">
+            <div class="feature-icon-box">1️⃣</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem; color: #fff;">Identity Discovery</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Real-time verification of email, account status, and role hierarchy.</div>
+            </div>
+          </div>
+
+          <div class="feature-point">
+            <div class="feature-icon-box">2️⃣</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem; color: #fff;">Password Challenge</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">4-tier strength analysis, active Caps Lock detection, and rate limiting.</div>
+            </div>
+          </div>
+
+          <div class="feature-point">
+            <div class="feature-icon-box">3️⃣</div>
+            <div>
+              <div style="font-weight: 700; font-size: 0.9rem; color: #fff;">Vault Access</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Encrypted 256-bit signed token issuance and personalized launch.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="position: relative; z-index: 2; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; justify-content: space-between;">
+          <span>🔒 Step-by-Step Procedure</span>
+          <span style="color: #34d399; font-weight: 600;">● Active</span>
+        </div>
+      </div>
+
+      <!-- RIGHT MULTI-STEP PROCEDURAL FLOW -->
+      <div class="login-main">
+        <!-- Procedural Stepper Header (3-Step Flow) -->
+        <div class="procedural-stepper" id="procedural-stepper">
+          <div class="stepper-step active" id="step-node-1">
+            <div class="step-bubble">1</div>
+            <div class="step-label">Identity</div>
+          </div>
+          <div class="stepper-connector" id="step-connector-1"></div>
+
+          <div class="stepper-step" id="step-node-2">
+            <div class="step-bubble">2</div>
+            <div class="step-label">Password</div>
+          </div>
+          <div class="stepper-connector" id="step-connector-2"></div>
+
+          <div class="stepper-step" id="step-node-3">
+            <div class="step-bubble">3</div>
+            <div class="step-label">Access</div>
+          </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- STAGE 1: IDENTITY & ACCOUNT DISCOVERY                     -->
+        <!-- ======================================================== -->
+        <div class="procedure-stage active" id="stage-1">
+          <div style="text-align: center; margin-bottom: 18px;">
+            <h1 style="font-size: 1.65rem; font-weight: 800; margin-bottom: 4px;">Step 1: Account Identity</h1>
+            <p style="font-size: 0.86rem; color: var(--text-muted);">Enter your email or username to verify your CineMind account</p>
+          </div>
+
+          <!-- Quick Test Profile Selectors -->
+          <div style="margin-bottom: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+              <span style="font-size: 0.74rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: #a5b4fc;">
+                ⚡ Select Test Profile
+              </span>
+              <span style="font-size: 0.72rem; color: var(--text-muted);">Click to load & verify</span>
+            </div>
+
+            <div class="fast-creds-container">
+              <button type="button" class="fast-cred-card" id="btn-select-user">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font-size: 0.85rem; font-weight: 700; color: #fff;">👤 Demo Member</span>
+                  <span style="font-size: 0.68rem; color: #34d399; font-weight: 700; background: rgba(16,185,129,0.12); padding: 2px 6px; border-radius: 4px;">MEMBER</span>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">demo@cinemind.ai</div>
+              </button>
+
+              <button type="button" class="fast-cred-card" id="btn-select-admin">
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <span style="font-size: 0.85rem; font-weight: 700; color: #fff;">👑 Platform Admin</span>
+                  <span style="font-size: 0.68rem; color: #fbbf24; font-weight: 700; background: rgba(245,158,11,0.15); padding: 2px 6px; border-radius: 4px;">ADMIN</span>
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 4px;">admin@cinemind.ai</div>
+              </button>
+            </div>
+          </div>
+
+          <form id="form-step-1">
+            <div class="form-group" style="margin-bottom: 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label class="form-label" for="login-identifier" style="font-size: 0.85rem; font-weight: 600; margin: 0;">Email or Username</label>
+                <span style="font-size: 0.74rem; color: var(--text-muted);">Live verification</span>
+              </div>
+              <div style="position: relative;">
+                <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 0.95rem; color: var(--text-muted); pointer-events: none;">✉️</span>
+                <input type="text" id="login-identifier" class="form-input" placeholder="e.g. demo@cinemind.ai" required autocomplete="username" style="padding-left: 42px;" />
+              </div>
+              <!-- Real-Time Feedback Pill -->
+              <div id="account-feedback" class="account-feedback-pill" style="display: none;"></div>
+            </div>
+
+            <button type="submit" id="btn-proceed-step1" class="btn btn-primary" style="width: 100%; padding: 13px; font-size: 0.95rem; font-weight: 700; border-radius: var(--radius-lg); box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);">
+              Proceed to Password Challenge →
+            </button>
+          </form>
+
+          <div style="text-align: center; margin-top: 22px; font-size: 0.86rem; color: var(--text-muted);">
+            Need a new account? <a href="/register.html" style="color: var(--accent-primary); font-weight: 700; text-decoration: none;">Create Account</a>
+          </div>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- STAGE 2: PASSWORD CHALLENGE & VERIFICATION                -->
+        <!-- ======================================================== -->
+        <div class="procedure-stage" id="stage-2">
+          <div style="text-align: center; margin-bottom: 14px;">
+            <h1 style="font-size: 1.65rem; font-weight: 800; margin-bottom: 4px;">Step 2: Password Challenge</h1>
+            <p style="font-size: 0.86rem; color: var(--text-muted);">Enter your password to unlock your CineMind session</p>
+          </div>
+
+          <!-- Verified Identity Summary Header -->
+          <div class="identity-summary-banner">
+            <div class="identity-summary-info">
+              <div class="identity-avatar-pill">
+                <img id="summary-avatar" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100" alt="User" />
+              </div>
+              <div style="overflow: hidden;">
+                <div id="summary-name" style="font-size: 0.88rem; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">Alex Mercer</div>
+                <div id="summary-identifier" style="font-size: 0.76rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">demo@cinemind.ai</div>
+              </div>
+            </div>
+            <button type="button" class="btn-change-identity" id="btn-change-identity">Change</button>
+          </div>
+
+          <!-- Security Lockout Banner (Dynamic) -->
+          <div id="security-lockout-banner" class="security-lockout-banner" style="display: none;">
+            <div style="font-size: 1.6rem;">🛡️</div>
+            <div style="flex: 1;">
+              <div style="font-weight: 700; color: #fca5a5; font-size: 0.92rem;">Security Lockout Active</div>
+              <div style="font-size: 0.82rem; color: #fecaca; margin-top: 2px;">
+                5 failed attempts. Cooling down for <strong id="lockout-countdown" style="color: #fff; font-size: 1rem;">30</strong>s.
+              </div>
+            </div>
+          </div>
+
+          <form id="form-step-2">
+            <div class="form-group" style="margin-bottom: 18px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                <label class="form-label" for="login-password" style="margin: 0; font-size: 0.85rem; font-weight: 600;">Password</label>
+                <a href="/forgot-password.html" style="font-size: 0.82rem; color: var(--accent-secondary); text-decoration: none;">Forgot?</a>
+              </div>
+              <div style="position: relative;">
+                <span style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 0.95rem; color: var(--text-muted); pointer-events: none;">🔑</span>
+                <input type="password" id="login-password" class="form-input" placeholder="Enter your password" required autocomplete="current-password" style="padding-left: 42px; padding-right: 44px;" />
+                <button type="button" id="toggle-password" title="Toggle password visibility" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; font-size: 1.05rem; padding: 4px;">👁️</button>
+              </div>
+
+              <!-- Caps Lock Alert -->
+              <div id="caps-lock-alert" class="caps-lock-alert">
+                <span>⚠️</span>
+                <span>Caps Lock is ON — Passwords are case-sensitive</span>
+              </div>
+
+              <!-- Password Strength Meter -->
+              <div id="password-meter-container" style="display: none; margin-top: 10px;">
+                <div class="password-meter-bar" id="password-meter-bar">
+                  <div class="password-meter-segment"></div>
+                  <div class="password-meter-segment"></div>
+                  <div class="password-meter-segment"></div>
+                  <div class="password-meter-segment"></div>
+                </div>
+                <div class="password-strength-label">
+                  <span>Password Strength:</span>
+                  <span id="strength-label" style="font-weight: 700; color: #94a3b8;">Enter password</span>
+                </div>
+                <div id="password-criteria-list" style="display: flex; gap: 12px; margin-top: 6px; font-size: 0.72rem; color: var(--text-muted); flex-wrap: wrap;">
+                  <span id="crit-length">• 8+ characters</span>
+                  <span id="crit-num">• 1+ number</span>
+                  <span id="crit-special">• 1+ uppercase/symbol</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="stage-action-row">
+              <button type="button" class="btn-stage-back" id="btn-back-to-step1">← Back</button>
+              <button type="submit" id="btn-proceed-step2" class="btn btn-primary" style="flex: 1; padding: 13px; font-size: 0.95rem; font-weight: 700; border-radius: var(--radius-lg); box-shadow: 0 8px 24px rgba(99, 102, 241, 0.4);">
+                Sign In to CineMind →
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- ======================================================== -->
+        <!-- STAGE 3: VAULT ACCESS GRANTED & AUTO-LAUNCH               -->
+        <!-- ======================================================== -->
+        <div class="procedure-stage" id="stage-3">
+          <div class="vault-unlocked-card">
+            <div class="vault-unlocked-icon">✓</div>
+            <h2 style="font-size: 1.7rem; font-weight: 800; margin-bottom: 8px; color: #fff;">Vault Access Granted</h2>
+            <p id="vault-welcome-message" style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 24px;">
+              Authentication confirmed. Encrypted session verified.<br />Launching your personalized CineMind AI workspace...
+            </p>
+            <div class="skeleton" style="width: 140px; height: 6px; margin: 0 auto; border-radius: var(--radius-full);"></div>
+          </div>
+        </div>
+
+        <!-- Security Telemetry Strip -->
+        <div class="security-telemetry-strip" style="margin-top: 24px;">
+          <div class="security-telemetry-badge">
+            <div class="dot"></div>
+            <span>TLS 1.3 / AES-256</span>
+          </div>
+          <div class="security-telemetry-badge">
+            <div class="dot"></div>
+            <span>Multi-Stage Guard</span>
+          </div>
+          <div class="security-telemetry-badge">
+            <div class="dot"></div>
+            <span>Identity Shield Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Redirect if already logged in
+      if (window.auth.isLoggedIn()) {
+        const currentUser = window.auth.getUser();
+        if (currentUser && currentUser.role === 'admin') {
+          window.location.href = '/admin.html';
+        } else {
+          window.location.href = '/dashboard.html';
+        }
+        return;
+      }
+
+      // State
+      let currentStep = 1;
+      let verifiedUser = null;
+      let checkTimer = null;
+      let lockoutInterval = null;
+
+      // DOM Elements
+      const stage1 = document.getElementById('stage-1');
+      const stage2 = document.getElementById('stage-2');
+      const stage3 = document.getElementById('stage-3');
+
+      const identifierInput = document.getElementById('login-identifier');
+      const accountFeedback = document.getElementById('account-feedback');
+      const btnProceed1 = document.getElementById('btn-proceed-step1');
+
+      const btnSelectUser = document.getElementById('btn-select-user');
+      const btnSelectAdmin = document.getElementById('btn-select-admin');
+
+      const summaryAvatar = document.getElementById('summary-avatar');
+      const summaryName = document.getElementById('summary-name');
+      const summaryIdentifier = document.getElementById('summary-identifier');
+      const btnChangeIdentity = document.getElementById('btn-change-identity');
+
+      const passwordInput = document.getElementById('login-password');
+      const togglePasswordBtn = document.getElementById('toggle-password');
+      const capsLockAlert = document.getElementById('caps-lock-alert');
+      const btnProceed2 = document.getElementById('btn-proceed-step2');
+      const btnBackToStep1 = document.getElementById('btn-back-to-step1');
+
+      // 3-Step Stepper Navigator
+      function setStep(step) {
+        currentStep = step;
+
+        for (let i = 1; i <= 3; i++) {
+          const node = document.getElementById(`step-node-${i}`);
+          const connector = document.getElementById(`step-connector-${i}`);
+          if (node) {
+            node.classList.remove('active', 'completed');
+            if (i < step) {
+              node.classList.add('completed');
+              node.querySelector('.step-bubble').textContent = '✓';
+            } else if (i === step) {
+              node.classList.add('active');
+              node.querySelector('.step-bubble').textContent = String(i);
+            } else {
+              node.querySelector('.step-bubble').textContent = String(i);
+            }
+          }
+          if (connector) {
+            if (i < step) {
+              connector.classList.add('completed');
+            } else {
+              connector.classList.remove('completed');
+            }
+          }
+        }
+
+        // Show matching stage
+        [stage1, stage2, stage3].forEach((s, idx) => {
+          if (idx + 1 === step) {
+            s.classList.add('active');
+          } else {
+            s.classList.remove('active');
+          }
+        });
+
+        if (step === 1) {
+          identifierInput.focus();
+        } else if (step === 2) {
+          passwordInput.focus();
+        }
+      }
+
+      // Step 1: Real-time Account Verification
+      async function checkIdentifier(val) {
+        const clean = (val || '').trim();
+        if (!clean) {
+          accountFeedback.style.display = 'none';
+          accountFeedback.className = 'account-feedback-pill';
+          accountFeedback.innerHTML = '';
+          verifiedUser = null;
+          return false;
+        }
+
+        accountFeedback.style.display = 'flex';
+        accountFeedback.className = 'account-feedback-pill checking';
+        accountFeedback.innerHTML = `<span>⏳</span> <span>Verifying CineMind credentials...</span>`;
+
+        try {
+          const res = await window.api.post('/auth/check-identifier', { identifier: clean });
+          if (res.exists) {
+            verifiedUser = res.user;
+            accountFeedback.className = 'account-feedback-pill verified';
+            const roleBadge = res.user.role === 'admin' ? '👑 Platform Admin' : '✨ CineMind Member';
+            accountFeedback.innerHTML = `
+              <span>✓</span>
+              <span><strong>${res.user.name || res.user.username}</strong> (${roleBadge}) — Verified</span>
+            `;
+            return true;
+          } else {
+            verifiedUser = null;
+            accountFeedback.className = 'account-feedback-pill not-found';
+            accountFeedback.innerHTML = `<span>⚠️</span> <span>No account found with this identifier.</span>`;
+            return false;
+          }
+        } catch (err) {
+          verifiedUser = null;
+          accountFeedback.className = 'account-feedback-pill not-found';
+          accountFeedback.innerHTML = `<span>⚠️</span> <span>${err.message || 'Verification unavailable'}</span>`;
+          return false;
+        }
+      }
+
+      identifierInput.addEventListener('input', (e) => {
+        clearTimeout(checkTimer);
+        checkTimer = setTimeout(() => {
+          checkIdentifier(e.target.value);
+        }, 320);
+      });
+
+      // Quick Profile Selectors
+      btnSelectUser.addEventListener('click', () => {
+        identifierInput.value = 'demo@cinemind.ai';
+        passwordInput.value = 'Demo@123';
+        btnSelectUser.classList.add('active');
+        btnSelectAdmin.classList.remove('active');
+        checkIdentifier('demo@cinemind.ai').then(() => {
+          window.showToast('Demo User profile loaded ✨', 'info');
+        });
+      });
+
+      btnSelectAdmin.addEventListener('click', () => {
+        identifierInput.value = 'admin@cinemind.ai';
+        passwordInput.value = 'Admin@123';
+        btnSelectAdmin.classList.add('active');
+        btnSelectUser.classList.remove('active');
+        checkIdentifier('admin@cinemind.ai').then(() => {
+          window.showToast('Admin profile loaded 👑', 'info');
+        });
+      });
+
+      // Step 1 Submission -> Transition to Step 2
+      document.getElementById('form-step-1').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const val = identifierInput.value.trim();
+        if (!val) {
+          window.showToast('Please provide an email or username.', 'error');
+          return;
+        }
+
+        btnProceed1.disabled = true;
+        btnProceed1.innerHTML = 'Verifying... <span class="spinner-sm"></span>';
+
+        const exists = await checkIdentifier(val);
+        btnProceed1.disabled = false;
+        btnProceed1.innerHTML = 'Proceed to Password Challenge →';
+
+        if (!exists) {
+          window.showToast('Account not found. Please check spelling or register.', 'error');
+          return;
+        }
+
+        summaryName.textContent = verifiedUser.name || verifiedUser.username;
+        summaryIdentifier.textContent = val;
+        if (verifiedUser.avatar) {
+          summaryAvatar.src = verifiedUser.avatar;
+        }
+
+        setStep(2);
+        evaluatePassword(passwordInput.value);
+      });
+
+      btnChangeIdentity.addEventListener('click', () => {
+        setStep(1);
+      });
+
+      btnBackToStep1.addEventListener('click', () => {
+        setStep(1);
+      });
+
+      // Step 2: Password Strength & Caps Lock
+      function evaluatePassword(pwd) {
+        const meterContainer = document.getElementById('password-meter-container');
+        const meterBar = document.getElementById('password-meter-bar');
+        const strengthLabel = document.getElementById('strength-label');
+        const critLength = document.getElementById('crit-length');
+        const critNum = document.getElementById('crit-num');
+        const critSpecial = document.getElementById('crit-special');
+
+        if (!pwd) {
+          meterContainer.style.display = 'none';
+          return;
+        }
+
+        meterContainer.style.display = 'block';
+
+        const hasLength = pwd.length >= 8;
+        const hasNumber = /\d/.test(pwd);
+        const hasUpperOrSpecial = /[A-Z]/.test(pwd) || /[^A-Za-z0-9]/.test(pwd);
+
+        critLength.style.color = hasLength ? '#34d399' : 'var(--text-muted)';
+        critLength.textContent = `${hasLength ? '✓' : '•'} 8+ characters`;
+
+        critNum.style.color = hasNumber ? '#34d399' : 'var(--text-muted)';
+        critNum.textContent = `${hasNumber ? '✓' : '•'} 1+ number`;
+
+        critSpecial.style.color = hasUpperOrSpecial ? '#34d399' : 'var(--text-muted)';
+        critSpecial.textContent = `${hasUpperOrSpecial ? '✓' : '•'} Upper/symbol`;
+
+        let score = 0;
+        if (pwd.length >= 4) score++;
+        if (hasLength) score++;
+        if (hasNumber) score++;
+        if (hasUpperOrSpecial) score++;
+
+        meterBar.className = 'password-meter-bar';
+        if (score <= 1) {
+          meterBar.classList.add('strength-weak');
+          strengthLabel.textContent = 'Weak';
+          strengthLabel.style.color = '#ef4444';
+        } else if (score === 2) {
+          meterBar.classList.add('strength-fair');
+          strengthLabel.textContent = 'Fair';
+          strengthLabel.style.color = '#f59e0b';
+        } else if (score === 3) {
+          meterBar.classList.add('strength-good');
+          strengthLabel.textContent = 'Good';
+          strengthLabel.style.color = '#38bdf8';
+        } else {
+          meterBar.classList.add('strength-strong');
+          strengthLabel.textContent = 'Strong & Secure';
+          strengthLabel.style.color = '#10b981';
+        }
+      }
+
+      passwordInput.addEventListener('input', (e) => {
+        evaluatePassword(e.target.value);
+      });
+
+      function handleCapsLock(e) {
+        if (e.getModifierState && e.getModifierState('CapsLock')) {
+          capsLockAlert.classList.add('active');
+        } else {
+          capsLockAlert.classList.remove('active');
+        }
+      }
+      passwordInput.addEventListener('keydown', handleCapsLock);
+      passwordInput.addEventListener('keyup', handleCapsLock);
+
+      togglePasswordBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        togglePasswordBtn.textContent = isPassword ? '🙈' : '👁️';
+      });
+
+      // Security Lockout Handler
+      function startLockout(seconds) {
+        const banner = document.getElementById('security-lockout-banner');
+        const countdownEl = document.getElementById('lockout-countdown');
+        banner.style.display = 'flex';
+        btnProceed2.disabled = true;
+        btnProceed2.style.opacity = '0.5';
+        btnProceed2.style.cursor = 'not-allowed';
+        btnProceed2.innerHTML = '🛡️ Lockout Active';
+
+        let remaining = seconds;
+        countdownEl.textContent = remaining;
+
+        clearInterval(lockoutInterval);
+        lockoutInterval = setInterval(() => {
+          remaining--;
+          if (remaining <= 0) {
+            clearInterval(lockoutInterval);
+            banner.style.display = 'none';
+            btnProceed2.disabled = false;
+            btnProceed2.style.opacity = '';
+            btnProceed2.style.cursor = '';
+            btnProceed2.innerHTML = 'Sign In to CineMind →';
+            window.showToast('Lockout cooldown expired. You may try again.', 'info');
+          } else {
+            countdownEl.textContent = remaining;
+          }
+        }, 1000);
+      }
+
+      // Step 2 Submission -> Authenticate directly & Launch Vault
+      document.getElementById('form-step-2').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const identifier = identifierInput.value.trim();
+        const password = passwordInput.value;
+
+        if (!password) {
+          window.showToast('Please enter your password.', 'error');
+          return;
+        }
+
+        btnProceed2.disabled = true;
+        btnProceed2.innerHTML = 'Securing session... <span class="spinner-sm"></span>';
+
+        try {
+          const res = await window.auth.login(identifier, password);
+          btnProceed2.disabled = false;
+          btnProceed2.innerHTML = 'Sign In to CineMind →';
+
+          // Transition to Step 3 (Access Granted)
+          setStep(3);
+          document.getElementById('vault-welcome-message').innerHTML = `
+            Welcome, <strong>${res.user.name || res.user.username}</strong>! Authentication confirmed.<br />
+            Launching your personalized CineMind AI workspace...
+          `;
+
+          const params = new URLSearchParams(window.location.search);
+          const redirect = params.get('redirect');
+
+          setTimeout(() => {
+            if (res.user.role === 'admin' && !redirect) {
+              window.location.href = '/admin.html';
+            } else {
+              window.location.href = redirect ? decodeURIComponent(redirect) : '/dashboard.html';
+            }
+          }, 800);
+        } catch (err) {
+          btnProceed2.disabled = false;
+          btnProceed2.innerHTML = 'Sign In to CineMind →';
+
+          if (err.remainingSeconds) {
+            startLockout(err.remainingSeconds);
+            window.showToast(err.message, 'error');
+          } else {
+            window.showToast(err.message || 'Invalid password.', 'error');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

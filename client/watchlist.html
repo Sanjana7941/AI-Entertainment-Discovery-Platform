@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Watchlist – CineMind AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 28px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <h1 style="font-size: 2.4rem; margin-bottom: 6px;">My <span class="text-gradient">Watchlist</span></h1>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">
+            Saved movies, shows, anime, and music to experience on your time.
+          </p>
+        </div>
+        <span id="watchlist-count" class="badge badge-primary" style="font-size: 0.9rem; padding: 6px 16px;">
+          Loading...
+        </span>
+      </div>
+
+      <!-- FILTER CONTROLS BAR -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 16px 20px; margin-bottom: 32px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+        <div style="flex: 1 1 200px;">
+          <input type="text" id="watchlist-search" class="form-input" placeholder="Search in your watchlist..." style="padding: 8px 14px; font-size: 0.88rem;" />
+        </div>
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <select id="watchlist-filter-type" class="form-select" style="padding: 8px 14px; font-size: 0.88rem; width: auto;">
+            <option value="all">All Formats</option>
+            <option value="Movie">Movies</option>
+            <option value="TV Show">TV Shows</option>
+            <option value="Web Series">Web Series</option>
+            <option value="Anime">Anime</option>
+            <option value="Music">Music</option>
+          </select>
+
+          <select id="watchlist-filter-status" class="form-select" style="padding: 8px 14px; font-size: 0.88rem; width: auto;">
+            <option value="all">All Statuses</option>
+            <option value="unwatched">Unwatched</option>
+            <option value="watched">Watched</option>
+          </select>
+
+          <select id="watchlist-sort" class="form-select" style="padding: 8px 14px; font-size: 0.88rem; width: auto;">
+            <option value="default">Recently Added</option>
+            <option value="rating">Highest Rated</option>
+            <option value="title">Title (A - Z)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- WATCHLIST GRID -->
+      <div class="content-grid" id="watchlist-grid">
+        <!-- Populated by watchlist.js -->
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/watchlist.js"></script>
+</body>
+</html>

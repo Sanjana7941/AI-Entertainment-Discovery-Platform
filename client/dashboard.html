@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard – CineMind AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+  <!-- Chart.js for beautiful statistics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container">
+      <!-- WELCOME BANNER -->
+      <div style="background: linear-gradient(135deg, rgba(99,102,241,0.18) 0%, rgba(168,85,247,0.18) 100%); border: 1px solid rgba(99,102,241,0.3); border-radius: var(--radius-xl); padding: 36px 32px; margin-bottom: 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span class="badge badge-primary" style="margin-bottom: 8px;">Personalized Hub</span>
+          <h1 style="font-size: 2.2rem; margin-bottom: 6px;">
+            Welcome back, <span class="text-gradient" id="dashboard-welcome-name">Explorer</span>! 👋
+          </h1>
+          <p style="color: var(--text-secondary); font-size: 1rem; margin: 0;">
+            Your AI entertainment engine has matched new releases to your taste profile.
+          </p>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <a href="/assistant.html" class="btn btn-primary">Ask AI Assistant ✨</a>
+          <a href="/mood.html" class="btn btn-secondary">Mood Explorer 🎭</a>
+        </div>
+      </div>
+
+      <!-- CONTINUE WATCHING SECTION -->
+      <section id="continue-watching-section" style="margin-bottom: 48px;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">⏱️ Continue Watching</h2>
+            <p class="section-subtitle">Pick up right where you left off</p>
+          </div>
+          <a href="/history.html" class="btn btn-outline btn-sm">Full History →</a>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="continue-watching-track">
+            <!-- Populated by dashboard.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- YOUR STATS SECTION -->
+      <section style="margin-bottom: 50px;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">📊 Your Entertainment Activity</h2>
+            <p class="section-subtitle">Insights into your viewing and listening journey</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 24px;">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 20px;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Movies Watched</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #fff; margin-top: 4px;" id="stat-movies">0</div>
+          </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 20px;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Shows Explored</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #818cf8; margin-top: 4px;" id="stat-shows">0</div>
+          </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 20px;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Hours Streamed</div>
+            <div style="font-size: 2rem; font-weight: 800; color: #22d3ee; margin-top: 4px;" id="stat-hours">0h</div>
+          </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 20px;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Average Rating</div>
+            <div style="font-size: 2rem; font-weight: 800; color: var(--star-gold); margin-top: 4px;" id="stat-rating">★ 0.0</div>
+          </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 20px;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Top Genre</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: #c084fc; margin-top: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" id="stat-genre">Sci-Fi</div>
+          </div>
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 20px;">
+            <div style="font-size: 0.82rem; color: var(--text-muted); text-transform: uppercase;">Current Streak</div>
+            <div style="font-size: 1.5rem; font-weight: 800; color: #f43f5e; margin-top: 8px;" id="stat-streak">1 Day 🔥</div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;" class="stats-grid">
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px;">
+            <h4 style="margin-bottom: 16px;">Top Genre Affinity</h4>
+            <div style="height: 220px; position: relative;">
+              <canvas id="genreChart"></canvas>
+            </div>
+          </div>
+
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 24px;">
+            <h4 style="margin-bottom: 16px;">Activity by Format</h4>
+            <div style="height: 220px; position: relative;">
+              <canvas id="formatChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BECAUSE YOU LIKE [GENRE] -->
+      <section style="margin-bottom: 48px;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title" id="because-you-like-title">🎯 Because You Like Sci-Fi</h2>
+            <p class="section-subtitle">Based on your highest-rated titles and primary genre affinity.</p>
+          </div>
+          <a href="/recommendations.html" class="btn btn-outline btn-sm">All AI Picks →</a>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="because-you-like-track">
+            <!-- Populated by dashboard.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- RECOMMENDED FOR YOU (GRID) -->
+      <section style="margin-bottom: 48px;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">✨ Recommended For You</h2>
+            <p class="section-subtitle">Calculated using our 9-factor recommendation scoring engine.</p>
+          </div>
+          <a href="/recommendations.html" class="btn btn-outline btn-sm">View Scoring Details →</a>
+        </div>
+        <div class="content-grid" id="recommended-grid">
+          <!-- Populated by dashboard.js -->
+        </div>
+      </section>
+
+      <!-- TRENDING NOW -->
+      <section style="margin-bottom: 40px;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">🔥 Global Audience Favorites</h2>
+            <p class="section-subtitle">Most popular entertainment trending across international audiences.</p>
+          </div>
+          <a href="/discover.html?sortBy=popularity-desc" class="btn btn-outline btn-sm">Explore All →</a>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="trending-track">
+            <!-- Populated by dashboard.js -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

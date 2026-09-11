@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 80" fill="none" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cmGradPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06b6d4" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+    <linearGradient id="cmGradAccent" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <radialGradient id="cmGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6366f1" stop-opacity="0.6" />
+      <stop offset="60%" stop-color="#06b6d4" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+    <filter id="cmFilterGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <circle cx="40" cy="40" r="36" fill="url(#cmGlow)" />
+
+  <g transform="translate(40, 40)" filter="url(#cmFilterGlow)">
+    <circle cx="0" cy="0" r="28" stroke="url(#cmGradPrimary)" stroke-width="2.5" stroke-dasharray="8 4" stroke-linecap="round" opacity="0.85" />
+    <ellipse cx="0" cy="0" rx="33" ry="14" stroke="url(#cmGradAccent)" stroke-width="1.8" transform="rotate(-30)" opacity="0.75" />
+    <circle cx="0" cy="0" r="16" fill="#0b0f24" stroke="url(#cmGradPrimary)" stroke-width="2.2" />
+    <path d="M 0 -10 Q 0 0 10 0 Q 0 0 0 10 Q 0 0 -10 0 Q 0 0 0 -10 Z" fill="url(#cmGradPrimary)" />
+    <circle cx="0" cy="0" r="3.5" fill="#ffffff" />
+    <circle cx="-16" cy="-14" r="2.2" fill="#06b6d4" />
+    <circle cx="16" cy="14" r="2.2" fill="#ec4899" />
+    <circle cx="21" cy="-7" r="1.8" fill="#38bdf8" />
+    <circle cx="-21" cy="7" r="1.8" fill="#a855f7" />
+  </g>
+
+  <text x="88" y="49" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="30" fill="#ffffff" letter-spacing="-0.5">
+    CINE<tspan fill="url(#cmGradPrimary)">MIND</tspan>
+  </text>
+
+  <g transform="translate(262, 28)">
+    <rect x="0" y="0" width="44" height="23" rx="6" fill="rgba(99, 102, 241, 0.18)" stroke="url(#cmGradPrimary)" stroke-width="1.2" />
+    <text x="22" y="16" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-weight="800" font-size="11.5" fill="#38bdf8" text-anchor="middle" letter-spacing="1">
+      AI
+    </text>
+  </g>
+</svg>

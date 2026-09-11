@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Details – CineMind AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+  <!-- THEATER LIGHTS OUT BACKDROP OVERLAY -->
+  <div id="theater-backdrop-overlay" style="position: fixed; inset: 0; background: rgba(5, 7, 15, 0.94); z-index: 900; opacity: 0; pointer-events: none; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);"></div>
+
+  <div id="navbar-container"></div>
+
+  <main style="padding-bottom: 80px;">
+    <!-- BACKDROP HERO BANNER -->
+    <div id="details-backdrop" style="height: 480px; width: 100%; background-size: cover; background-position: center; position: relative; border-bottom: 1px solid var(--border-subtle);">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,12,22,0.4) 0%, var(--bg-primary) 100%);"></div>
+    </div>
+
+    <!-- MAIN CONTENT DETAILS CONTAINER -->
+    <div class="container" style="position: relative; margin-top: -160px; z-index: 10;">
+      <div class="details-hero" style="display: flex; gap: 36px; align-items: flex-start; margin-bottom: 48px;">
+          <!-- Poster -->
+        <div class="details-poster" style="flex: 0 0 260px; border-radius: var(--radius-xl); overflow: hidden; border: 2px solid rgba(255,255,255,0.12); box-shadow: var(--shadow-lg); background: #121629;">
+          <img id="details-poster" src="" alt="Poster" style="width: 100%; height: auto; object-fit: cover;" onerror="this.onerror=null; this.src='/images/content/fallback.jpg';" />
+        </div>
+
+        <!-- Meta Info -->
+        <div style="flex: 1;">
+          <div style="display: flex; gap: 10px; align-items: center; margin-bottom: 10px; flex-wrap: wrap;">
+            <span id="details-score-badge" class="ai-score-pill">✨ 92% AI Match</span>
+            <span id="details-rating" class="badge badge-gold" style="font-size: 0.9rem;">★ 8.5</span>
+            <div id="details-genres" style="display: flex; gap: 6px; flex-wrap: wrap;"></div>
+          </div>
+
+          <h1 id="details-title" style="font-size: 2.8rem; margin-bottom: 10px; line-height: 1.2;">Loading...</h1>
+          <div id="details-meta" style="font-size: 1rem; color: var(--text-muted); margin-bottom: 20px;"></div>
+
+          <!-- Action Buttons -->
+          <div style="display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap;">
+            <button id="btn-play-trailer" class="btn btn-primary btn-lg">
+              ▶ Watch Trailer
+            </button>
+            <button id="btn-toggle-watchlist" class="btn btn-secondary btn-lg">
+              + Add to Watchlist
+            </button>
+            <button id="btn-toggle-like" class="btn btn-secondary btn-lg">
+              🤍 Favorite
+            </button>
+          </div>
+
+          <!-- Description (Movies & Shows only) -->
+          <div id="details-overview-container">
+            <h3 style="font-size: 1.2rem; margin-bottom: 8px;">Overview</h3>
+            <p id="details-desc" style="font-size: 1.05rem; color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px;"></p>
+          </div>
+
+          <!-- Cast & Director (Movies & Shows only) -->
+          <div id="details-cast-container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-size: 0.92rem; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 20px;">
+            <div>
+              <span id="details-cast-label" style="color: var(--text-muted); display: block; font-size: 0.8rem; text-transform: uppercase;">Starring / Voices</span>
+              <strong id="details-cast" style="color: var(--text-primary);"></strong>
+            </div>
+            <div>
+              <span id="details-director-label" style="color: var(--text-muted); display: block; font-size: 0.8rem; text-transform: uppercase;">Director / Creator</span>
+              <strong id="details-director" style="color: var(--text-primary);"></strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEDIA PLAYER STREAM SECTION (FOR MOVIES, SERIES, ANIME) -->
+      <section id="details-player-section" style="position: relative; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 48px; box-shadow: var(--shadow-md); transition: all 0.4s ease;">
+        <!-- Ambient Cinema Backlight Glow -->
+        <div id="cinema-ambient-glow" style="position: absolute; inset: -15px; background: radial-gradient(circle at center, rgba(99,102,241,0.3) 0%, rgba(168,85,247,0.15) 45%, transparent 75%); filter: blur(35px); pointer-events: none; z-index: 0; opacity: 0.9; transition: opacity 0.4s ease;"></div>
+
+        <div style="position: relative; z-index: 1;">
+          <!-- Top Header & Controls -->
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 14px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <span id="player-icon" style="font-size: 1.6rem; display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; border-radius: 12px; background: linear-gradient(135deg, rgba(99,102,241,0.25), rgba(168,85,247,0.25)); border: 1px solid rgba(99,102,241,0.4);">🎬</span>
+              <div>
+                <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                  <h3 id="player-heading" style="font-size: 1.35rem; margin: 0; font-weight: 800; color: #fff;">Official Trailer & HD Preview</h3>
+                  <span id="player-format-badge" class="badge badge-primary" style="font-size: 0.76rem; font-weight: 700; padding: 4px 10px;">✨ 4K UHD Trailer</span>
+                </div>
+                <p id="player-subheading" style="font-size: 0.85rem; color: var(--text-muted); margin: 3px 0 0 0;">Official cinematic trailer, teasers, and high-definition preview clips</p>
+              </div>
+            </div>
+
+            <!-- Player Action Bar -->
+            <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+              <button type="button" id="btn-theater-mode" class="btn btn-secondary btn-sm" title="Toggle Theater Lighting">
+                💡 <span id="theater-mode-text">Lights Off</span>
+              </button>
+              <button type="button" id="btn-fullscreen-player" class="btn btn-outline btn-sm">
+                ⛶ Pop-up Player
+              </button>
+            </div>
+          </div>
+
+          <!-- Video Canvas -->
+          <div class="video-responsive" style="border-radius: var(--radius-lg); overflow: hidden; background: #000; border: 1px solid rgba(255,255,255,0.12); box-shadow: inset 0 0 30px rgba(0,0,0,0.95); position: relative;">
+            <iframe id="details-media-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen style="width: 100%; aspect-ratio: 16/9; border: none; display: block;"></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- DEDICATED NATIVE HTML5 MUSIC JUKEBOX & THEMES PLAYER (FOR MUSIC) -->
+      <section id="details-music-player-section" style="display: none; background: linear-gradient(135deg, rgba(16, 20, 42, 0.95), rgba(30, 20, 52, 0.95)); border: 1px solid rgba(168,85,247,0.35); border-radius: var(--radius-xl); padding: 32px; margin-bottom: 36px; box-shadow: 0 16px 40px rgba(0,0,0,0.6); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: -80px; right: -80px; width: 220px; height: 220px; background: radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 70%); pointer-events: none;"></div>
+        
+        <!-- Header badge & title -->
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #6366f1, #a855f7); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; box-shadow: 0 0 18px rgba(99,102,241,0.5);">🎵</div>
+            <div>
+              <h3 id="music-player-heading" style="font-size: 1.35rem; margin: 0; color: #fff; font-weight: 800;">Studio Discography & Master Themes</h3>
+              <p style="font-size: 0.85rem; color: #a5b4fc; margin: 2px 0 0 0;">Native High-Fidelity Audio • Direct Stream (No YouTube restrictions)</p>
+            </div>
+          </div>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <span class="badge" style="background: rgba(16,185,129,0.2); color: #34d399; border: 1px solid rgba(16,185,129,0.3); font-size: 0.8rem; padding: 5px 12px;">● Live Lossless Audio</span>
+            <span id="music-quality-badge" class="badge badge-primary" style="font-size: 0.8rem; padding: 5px 10px;">Dolby Atmos 256kbps</span>
+          </div>
+        </div>
+
+        <!-- Jukebox Main Deck -->
+        <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap;">
+          <!-- Vinyl & Album Art Deck -->
+          <div style="position: relative; width: 150px; height: 150px; flex-shrink: 0; margin: 0 auto;">
+            <!-- Vinyl Record (spins when playing) -->
+            <div id="music-vinyl-disc" class="vinyl-disc" style="position: absolute; inset: 0; border-radius: 50%; background: radial-gradient(circle, #0f172a 0%, #1e1b4b 35%, #05070f 70%, #111 100%); border: 3px solid #333; box-shadow: 0 8px 24px rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center;">
+              <div style="width: 50px; height: 50px; border-radius: 50%; background: #6366f1; border: 4px solid #fff; display: flex; align-items: center; justify-content: center;">
+                <div style="width: 12px; height: 12px; border-radius: 50%; background: #0a0c16;"></div>
+              </div>
+            </div>
+            <!-- Cover Art overlay -->
+            <img id="music-deck-cover" src="" alt="Album Cover" style="position: absolute; width: 90px; height: 90px; border-radius: 12px; top: 30px; left: 0px; object-fit: cover; box-shadow: 0 8px 20px rgba(0,0,0,0.6); border: 2px solid rgba(255,255,255,0.2); z-index: 2;" onerror="this.onerror=null; this.src='/images/content/fallback.jpg';" />
+          </div>
+
+          <!-- Track Info & Controls -->
+          <div style="flex: 1; min-width: 260px;">
+            <!-- Now Playing Tag & Visualizer -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <span id="music-now-playing-tag" style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; color: #c084fc; font-weight: 700;">Track 1</span>
+              <!-- Equalizer Wave Bars -->
+              <div id="music-equalizer" class="equalizer-bars" style="display: flex; gap: 4px; align-items: flex-end; height: 18px;">
+                <span class="eq-bar" style="width: 3px; background: #a855f7; border-radius: 2px; height: 4px;"></span>
+                <span class="eq-bar" style="width: 3px; background: #6366f1; border-radius: 2px; height: 12px;"></span>
+                <span class="eq-bar" style="width: 3px; background: #38bdf8; border-radius: 2px; height: 8px;"></span>
+                <span class="eq-bar" style="width: 3px; background: #ec4899; border-radius: 2px; height: 15px;"></span>
+                <span class="eq-bar" style="width: 3px; background: #a855f7; border-radius: 2px; height: 6px;"></span>
+              </div>
+            </div>
+
+            <h2 id="music-active-title" style="font-size: 1.45rem; color: #fff; margin: 0 0 4px 0; font-weight: 800; line-height: 1.2;">Select a track to play</h2>
+            <div id="music-active-subtitle" style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 16px;">Artist • Film Soundtrack / Theme</div>
+
+            <!-- Time & Progress Scrubber -->
+            <div style="margin-bottom: 14px;">
+              <input type="range" id="music-progress-bar" min="0" max="100" value="0" style="width: 100%; accent-color: #a855f7; cursor: pointer; height: 6px; border-radius: 3px;" />
+              <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: var(--text-muted); font-variant-numeric: tabular-nums; margin-top: 4px;">
+                <span id="music-time-current">0:00</span>
+                <span id="music-time-total">0:00</span>
+              </div>
+            </div>
+
+            <!-- Audio Controls Buttons -->
+            <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px;">
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <button type="button" id="btn-music-prev" class="btn btn-secondary btn-icon" title="Previous Track" style="width: 40px; height: 40px; border-radius: 50%; font-size: 1rem;">⏮</button>
+                <button type="button" id="btn-music-play-pause" class="btn btn-primary btn-icon" title="Play / Pause" style="width: 50px; height: 50px; border-radius: 50%; font-size: 1.35rem; box-shadow: 0 0 20px rgba(99,102,241,0.5);">▶</button>
+                <button type="button" id="btn-music-next" class="btn btn-secondary btn-icon" title="Next Track" style="width: 40px; height: 40px; border-radius: 50%; font-size: 1rem;">⏭</button>
+              </div>
+
+              <!-- Volume Control -->
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span id="music-vol-icon" style="font-size: 1rem; cursor: pointer;" title="Mute/Unmute">🔊</span>
+                <input type="range" id="music-volume" min="0" max="100" value="85" style="width: 80px; accent-color: #6366f1; cursor: pointer; height: 5px;" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hidden Native Audio Engine -->
+        <audio id="native-music-audio" preload="auto"></audio>
+      </section>
+
+      <!-- ARTIST TRACKLIST & THEMES SECTION -->
+      <section id="details-tracklist-section" style="display: none; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 28px; margin-bottom: 48px; box-shadow: var(--shadow-sm);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
+          <div>
+            <h3 id="tracklist-title" style="font-size: 1.35rem; margin: 0; display: flex; align-items: center; gap: 8px;">
+              <span id="tracklist-icon">🎵</span>
+              <span id="tracklist-heading-text">Available Songs to Listen</span>
+            </h3>
+            <p id="tracklist-subtitle" style="font-size: 0.88rem; color: var(--text-muted); margin: 4px 0 0 0;">Click any track to listen immediately</p>
+          </div>
+          <span id="tracklist-count-badge" class="badge badge-primary">Tracks</span>
+        </div>
+
+        <!-- Active Now Playing Strip -->
+        <div id="active-track-banner" style="display: none; background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(168,85,247,0.2)); border: 1px solid rgba(168,85,247,0.35); border-radius: var(--radius-lg); padding: 12px 18px; margin-bottom: 18px; align-items: center; justify-content: space-between;">
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span style="font-size: 1.3rem;">🔊</span>
+            <div>
+              <div style="font-size: 0.75rem; color: #c084fc; font-weight: 700; text-transform: uppercase;">Now Playing</div>
+              <strong id="active-track-name" style="font-size: 0.95rem; color: #fff;">Track Title</strong>
+            </div>
+          </div>
+          <span class="badge badge-cyan" style="font-size: 0.78rem;">▶ Playing</span>
+        </div>
+
+        <!-- Tracklist Items Container -->
+        <div id="tracklist-container" style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Injected by details.js -->
+        </div>
+      </section>
+
+
+      <!-- "WHY WE RECOMMEND THIS" AI CARD -->
+      <section id="details-ai-reason-section" style="background: linear-gradient(135deg, rgba(99,102,241,0.12), rgba(168,85,247,0.12)); border: 1px solid rgba(168,85,247,0.3); border-radius: var(--radius-xl); padding: 28px 32px; margin-bottom: 48px;">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+          <span style="font-size: 1.6rem;">💡</span>
+          <h3 style="font-size: 1.3rem; margin: 0;">Why CineMind AI Recommends This</h3>
+        </div>
+        <p id="details-ai-reason" style="font-size: 1.05rem; color: var(--text-primary); line-height: 1.6; margin: 0;"></p>
+      </section>
+
+      <!-- RATING & REVIEWS SECTION -->
+      <section id="details-reviews-section" style="margin-bottom: 48px;">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">⭐ Ratings & Reviews</h2>
+            <p class="section-subtitle">Share your perspective with fellow cinephiles and music lovers</p>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 320px 1fr; gap: 32px; align-items: flex-start;" class="discover-layout">
+          <!-- Submit Review Form -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 24px;">
+            <h3 style="font-size: 1.15rem; margin-bottom: 16px;">Leave Your Rating</h3>
+            
+            <form id="review-form">
+              <div class="form-group">
+                <label class="form-label">Your Rating</label>
+                <div class="star-rating-widget" id="star-rater">
+                  <span class="star-icon active" data-val="1">★</span>
+                  <span class="star-icon active" data-val="2">★</span>
+                  <span class="star-icon active" data-val="3">★</span>
+                  <span class="star-icon active" data-val="4">★</span>
+                  <span class="star-icon active" data-val="5">★</span>
+                </div>
+                <span id="rating-val-display" style="font-size: 0.85rem; color: var(--star-gold); font-weight: 700; margin-top: 4px; display: block;">5 / 5 Stars</span>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="review-text-input">Review / Thoughts (Optional)</label>
+                <textarea id="review-text-input" class="form-textarea" placeholder="What stood out to you? Direction, music, acting, story pacing..." rows="4"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" style="width: 100%;">
+                Submit Rating & Review
+              </button>
+            </form>
+          </div>
+
+          <!-- Existing Reviews List -->
+          <div>
+            <div id="reviews-list">
+              <!-- Populated by details.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIMILAR CONTENT CAROUSEL -->
+      <section id="details-similar-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">✨ More Like This</h2>
+            <p class="section-subtitle">Titles sharing creative themes, cast, and stylistic direction</p>
+          </div>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="similar-content-track">
+            <!-- Populated by details.js -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/details.js"></script>
+</body>
+</html>

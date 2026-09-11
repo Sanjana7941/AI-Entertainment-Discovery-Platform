@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineMind AI Assistant – Conversational Entertainment Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="padding: 30px 0 60px;">
+    <div class="container" style="max-width: 960px;">
+      <div style="text-align: center; margin-bottom: 24px;">
+        <div class="neural-orb" title="CineMind Neural Core Active">
+          <span style="font-size: 1.8rem;">✨</span>
+        </div>
+        <span class="badge badge-primary" style="margin-bottom: 8px; box-shadow: 0 0 14px rgba(99,102,241,0.35);">● Neural Engine Active</span>
+        <h1 style="font-size: 2.3rem; font-weight: 800; margin-bottom: 6px;">CineMind <span class="text-gradient">AI Assistant</span></h1>
+        <p style="color: var(--text-muted); font-size: 0.95rem; max-width: 580px; margin: 0 auto;">
+          Ask for recommendations using conversational phrasing, runtimes, actors, languages, or vibes.
+        </p>
+      </div>
+
+      <!-- SUGGESTED QUICK PROMPT PILLS -->
+      <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
+        <button type="button" class="chip-option prompt-pill">"What should I watch tonight?"</button>
+        <button type="button" class="chip-option prompt-pill">"Recommend a thriller under 2 hours"</button>
+        <button type="button" class="chip-option prompt-pill">"Suggest Tamil movies"</button>
+        <button type="button" class="chip-option prompt-pill">"Give me anime similar to Naruto"</button>
+        <button type="button" class="chip-option prompt-pill">"What should I watch if I liked Interstellar?"</button>
+        <button type="button" class="chip-option prompt-pill">"I need a movie for a family night"</button>
+      </div>
+
+      <!-- CHAT CONTAINER -->
+      <div class="chat-container">
+        <!-- Messages Scroll Area -->
+        <div class="chat-messages" id="chat-messages">
+          <!-- Populated by assistant.js -->
+        </div>
+
+        <!-- Input Row -->
+        <form class="chat-input-row" id="chat-form" onsubmit="event.preventDefault(); return false;">
+          <input type="text" id="chat-input" class="form-input" placeholder="Ask CineMind AI anything... (e.g. 'high-energy anime' or 'relaxing music')" autocomplete="off" style="border-radius: var(--radius-full); padding: 12px 20px;" />
+          <button type="submit" id="chat-send-btn" class="btn btn-primary" style="border-radius: var(--radius-full); padding: 12px 24px;">
+            Send ✨
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/assistant.js"></script>
+</body>
+</html>

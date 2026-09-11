@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create Your Profile – CineMind AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="padding: 40px 16px;">
+    <div class="container" style="max-width: 760px;">
+      <div style="background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 40px; box-shadow: var(--shadow-lg);">
+        <div style="text-align: center; margin-bottom: 32px;">
+          <div class="logo-icon" style="margin: 0 auto 12px; width: 44px; height: 44px; font-size: 1.4rem;">✨</div>
+          <h2 style="font-size: 2rem; margin-bottom: 6px;">Join CineMind AI</h2>
+          <p style="font-size: 0.95rem; color: var(--text-muted);">
+            Build your personalized taste profile to unlock bespoke recommendations across movies, shows, anime & audio.
+          </p>
+        </div>
+
+        <form id="register-form">
+          <!-- Step 1: Account Credentials -->
+          <h3 style="font-size: 1.15rem; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+            1. Account Details
+          </h3>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Full Name *</label>
+              <input type="text" id="reg-name" class="form-input" placeholder="e.g. Alex Mercer" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-username">Username *</label>
+              <input type="text" id="reg-username" class="form-input" placeholder="e.g. alexm" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="reg-email">Email Address *</label>
+            <input type="email" id="reg-email" class="form-input" placeholder="e.g. alex@example.com" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password (min 6 chars) *</label>
+              <input type="password" id="reg-password" class="form-input" placeholder="Create a secure password" required minlength="6" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-confirm-password">Confirm Password *</label>
+              <input type="password" id="reg-confirm-password" class="form-input" placeholder="Repeat your password" required minlength="6" />
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="reg-dob">Date of Birth</label>
+              <input type="date" id="reg-dob" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-primary-lang">Primary Language</label>
+              <select id="reg-primary-lang" class="form-select">
+                <option value="English" selected>English</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Telugu">Telugu</option>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Kannada">Kannada</option>
+                <option value="Korean">Korean</option>
+                <option value="Japanese">Japanese</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Step 2: Taste Profile -->
+          <h3 style="font-size: 1.15rem; margin: 28px 0 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+            2. Favorite Genres (Select all that you love)
+          </h3>
+          <div class="chips-selector" id="reg-genres-chips" style="margin-bottom: 24px;">
+            <span class="chip-option selected" data-val="Sci-Fi">Sci-Fi</span>
+            <span class="chip-option selected" data-val="Thriller">Thriller</span>
+            <span class="chip-option selected" data-val="Action">Action</span>
+            <span class="chip-option" data-val="Adventure">Adventure</span>
+            <span class="chip-option" data-val="Comedy">Comedy</span>
+            <span class="chip-option" data-val="Drama">Drama</span>
+            <span class="chip-option" data-val="Romance">Romance</span>
+            <span class="chip-option" data-val="Horror">Horror</span>
+            <span class="chip-option" data-val="Fantasy">Fantasy</span>
+            <span class="chip-option" data-val="Mystery">Mystery</span>
+            <span class="chip-option selected" data-val="Animation">Animation</span>
+            <span class="chip-option" data-val="Documentary">Documentary</span>
+            <span class="chip-option" data-val="Crime">Crime</span>
+            <span class="chip-option" data-val="Musical">Musical</span>
+          </div>
+
+          <h3 style="font-size: 1.15rem; margin: 24px 0 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+            3. Preferred Content Types
+          </h3>
+          <div class="chips-selector" id="reg-types-chips" style="margin-bottom: 24px;">
+            <span class="chip-option selected" data-val="Movie">Movies</span>
+            <span class="chip-option selected" data-val="TV Show">TV Shows</span>
+            <span class="chip-option selected" data-val="Web Series">Web Series</span>
+            <span class="chip-option selected" data-val="Anime">Anime</span>
+            <span class="chip-option selected" data-val="Music">Music</span>
+          </div>
+
+          <h3 style="font-size: 1.15rem; margin: 24px 0 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 8px;">
+            4. Preferred Languages
+          </h3>
+          <div class="chips-selector" id="reg-langs-chips" style="margin-bottom: 32px;">
+            <span class="chip-option selected" data-val="English">English</span>
+            <span class="chip-option selected" data-val="Tamil">Tamil</span>
+            <span class="chip-option selected" data-val="Hindi">Hindi</span>
+            <span class="chip-option" data-val="Telugu">Telugu</span>
+            <span class="chip-option" data-val="Malayalam">Malayalam</span>
+            <span class="chip-option" data-val="Kannada">Kannada</span>
+            <span class="chip-option selected" data-val="Korean">Korean</span>
+            <span class="chip-option selected" data-val="Japanese">Japanese</span>
+            <span class="chip-option" data-val="Spanish">Spanish</span>
+          </div>
+
+          <button type="submit" id="reg-submit-btn" class="btn btn-primary btn-lg" style="width: 100%;">
+            Complete Profile & Launch CineMind AI ✨
+          </button>
+        </form>
+
+        <div style="text-align: center; margin-top: 24px; font-size: 0.9rem; color: var(--text-muted);">
+          Already have an account? <a href="/login.html" style="color: var(--accent-primary); font-weight: 600;">Sign In</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Setup toggle behavior for chip options
+      const chips = document.querySelectorAll('.chip-option');
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => chip.classList.toggle('selected'));
+      });
+
+      const form = document.getElementById('register-form');
+      const submitBtn = document.getElementById('reg-submit-btn');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const password = document.getElementById('reg-password').value;
+        const confirmPassword = document.getElementById('reg-confirm-password').value;
+
+        if (password !== confirmPassword) {
+          window.showToast('Passwords do not match.', 'error');
+          return;
+        }
+
+        const getSelected = (containerId) => {
+          const selected = document.querySelectorAll(`#${containerId} .chip-option.selected`);
+          return Array.from(selected).map(el => el.dataset.val);
+        };
+
+        const payload = {
+          name: document.getElementById('reg-name').value.trim(),
+          username: document.getElementById('reg-username').value.trim(),
+          email: document.getElementById('reg-email').value.trim(),
+          password,
+          confirmPassword,
+          dob: document.getElementById('reg-dob').value,
+          preferredLanguage: document.getElementById('reg-primary-lang').value,
+          favoriteGenres: getSelected('reg-genres-chips'),
+          preferredContentTypes: getSelected('reg-types-chips'),
+          preferredLanguages: getSelected('reg-langs-chips')
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Generating your AI entertainment universe...';
+
+        try {
+          const res = await window.auth.register(payload);
+          window.showToast('Account created! Welcome to CineMind AI.', 'success');
+          setTimeout(() => {
+            window.location.href = '/dashboard.html';
+          }, 800);
+        } catch (err) {
+          window.showToast(err.message || 'Registration failed.', 'error');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Complete Profile & Launch CineMind AI ✨';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

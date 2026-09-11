@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings – CineMind AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container" style="max-width: 800px;">
+      <h1 style="font-size: 2.4rem; margin-bottom: 8px;">Account <span class="text-gradient">Settings</span></h1>
+      <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 36px;">
+        Manage your security credentials, appearance, and privacy preferences.
+      </p>
+
+      <!-- SECTION 1: APPEARANCE -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 32px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.25rem; margin-bottom: 16px;">🎨 Appearance & Interface</h3>
+        <div class="form-group" style="max-width: 320px; margin-bottom: 0;">
+          <label class="form-label" for="theme-select">Theme Mode</label>
+          <select id="theme-select" class="form-select">
+            <option value="dark">Dark Cinematic (Default)</option>
+            <option value="light">Light Crisp</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SECTION 2: SECURITY & PASSWORD -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 32px; margin-bottom: 32px;">
+        <h3 style="font-size: 1.25rem; margin-bottom: 16px;">🔒 Security & Password</h3>
+
+        <form id="change-password-form">
+          <div class="form-group">
+            <label class="form-label" for="current-password">Current Password</label>
+            <input type="password" id="current-password" class="form-input" required placeholder="Enter current password" />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="new-password">New Password (min 6 chars)</label>
+              <input type="password" id="new-password" class="form-input" required minlength="6" placeholder="Enter new password" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="confirm-new-password">Confirm New Password</label>
+              <input type="password" id="confirm-new-password" class="form-input" required minlength="6" placeholder="Repeat new password" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Update Password</button>
+        </form>
+      </div>
+
+      <!-- SECTION 3: PRIVACY & DATA -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 32px;">
+        <h3 style="font-size: 1.25rem; margin-bottom: 8px;">🛡️ Privacy & Data Controls</h3>
+        <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 24px;">
+          Manage or wipe your historical tracking vectors stored on CineMind AI.
+        </p>
+
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div style="font-weight: 600; font-size: 0.95rem;">Clear Search History</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Erases past keyword queries used for search suggestions.</div>
+            </div>
+            <button id="btn-clear-search-history" class="btn btn-outline btn-sm">Clear Searches</button>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div style="font-weight: 600; font-size: 0.95rem;">Clear Watch History</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Wipes all tracked viewing progress and completion logs.</div>
+            </div>
+            <button id="btn-clear-watch-history" class="btn btn-outline btn-sm">Clear Watch History</button>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 14px; flex-wrap: wrap; gap: 12px;">
+            <div>
+              <div style="font-weight: 600; font-size: 0.95rem; color: var(--danger);">Delete CineMind AI Account</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted);">Permanently removes your credentials, watchlist, ratings, and profile.</div>
+            </div>
+            <button id="btn-open-delete-modal" class="btn btn-danger btn-sm">Delete Account</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- CONFIRM DELETE ACCOUNT MODAL -->
+  <div id="delete-account-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" style="color: var(--danger);">Delete Your Account?</h3>
+        <button class="modal-close-btn" onclick="closeModal('delete-account-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--text-secondary); line-height: 1.6;">
+          Are you sure you want to permanently delete your CineMind AI account? All your personalized vectors, reviews, ratings, and custom watchlists will be immediately erased. This action cannot be reversed.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('delete-account-modal')">Cancel</button>
+        <button id="btn-confirm-delete-account" class="btn btn-danger">Permanently Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/settings.js"></script>
+</body>
+</html>

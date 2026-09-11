@@ -1,0 +1,425 @@
+[
+  {
+    "_id": "eacd7d2335ca35a5391cf106",
+    "name": "Alex Mercer",
+    "username": "demouser",
+    "email": "demo@cinemind.ai",
+    "password": "$2b$10$V4BlKTZsHImlnW.dfnpOVeiTr0TwXH/97xTjrVsb1fsJZb0pVb9j6",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=200",
+    "dob": "1998-05-14",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Thriller",
+      "Action",
+      "Animation"
+    ],
+    "preferredLanguages": [
+      "English",
+      "Tamil",
+      "Korean",
+      "Japanese"
+    ],
+    "preferredContentTypes": [
+      "Movie",
+      "TV Show",
+      "Anime"
+    ],
+    "role": "user",
+    "status": "active",
+    "likedContent": [
+      "6736330ff928ed919a215879",
+      "9fc712e3aa78c5d93dc553f7"
+    ],
+    "watchlist": [
+      "b9bf0697fe116f3c547a7201",
+      "96dfa9e968de516636b23f80",
+      "85b95cd517b4c9c25b725a69",
+      "e53c6e3180aed07558f82db0"
+    ],
+    "createdAt": "2026-09-09T16:22:21.917Z",
+    "updatedAt": "2026-09-10T14:28:25.911Z"
+  },
+  {
+    "_id": "cdadffdf7b0d45fdfe6feb29",
+    "name": "CineMind Administrator",
+    "username": "admin",
+    "email": "admin@cinemind.ai",
+    "password": "$2b$10$1cLhuJitQ.tDsNWXH2feQut79HRIXREtbFjkBVBagh6rXVcxbpKMW",
+    "avatar": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=200",
+    "dob": "1990-01-01",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Crime",
+      "Documentary"
+    ],
+    "preferredLanguages": [
+      "English",
+      "Tamil",
+      "Hindi"
+    ],
+    "preferredContentTypes": [
+      "Movie",
+      "TV Show",
+      "Web Series",
+      "Anime",
+      "Music"
+    ],
+    "role": "admin",
+    "status": "active",
+    "likedContent": [],
+    "watchlist": [],
+    "createdAt": "2026-09-09T16:22:21.982Z",
+    "updatedAt": "2026-09-09T16:22:21.982Z"
+  },
+  {
+    "_id": "e5fa0ad6c0bfe4c81a7bc0ba",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor2850",
+    "email": "sarah344@cinemind.ai",
+    "password": "$2b$10$OFOTAJ/wq8H7Qh.VN8DyVOXvTiVa.wjkpw/icGG9Pkp8rbdV6zKvu",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-09T16:36:48.674Z",
+    "updatedAt": "2026-09-09T16:36:48.693Z"
+  },
+  {
+    "_id": "2831f57b4588a5fbdbe0d8ea",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor5973",
+    "email": "sarah2788@cinemind.ai",
+    "password": "$2b$10$LBKwxJ02F3EBYgFXuejaJeZKv/Hb0LoL6BxGSifSbSN8t8USkPPg.",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-09T16:51:08.121Z",
+    "updatedAt": "2026-09-09T16:51:08.142Z"
+  },
+  {
+    "_id": "0ca3640dd7049d0196aff82a",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor1655",
+    "email": "sarah4442@cinemind.ai",
+    "password": "$2b$10$7oTNs6/4pjegcBxCh.9PXOS3w3Ne4sL1mmxpltdb7sn9mk.w9sQEW",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-10T12:47:08.957Z",
+    "updatedAt": "2026-09-10T12:47:08.987Z"
+  },
+  {
+    "_id": "4e0898d84163484c651a2e9f",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor362",
+    "email": "sarah8978@cinemind.ai",
+    "password": "$2b$10$70/MogszZw9M.nu7MFbJfOlg3jdco111IbJovPAh3FFBRK83JHzfK",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-10T13:19:12.114Z",
+    "updatedAt": "2026-09-10T13:19:12.158Z"
+  },
+  {
+    "_id": "564175b5961f4d539c6db703",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor8868",
+    "email": "sarah5313@cinemind.ai",
+    "password": "$2b$10$PEet3HUGgyzmsO21oKpD3Oq7VEcWiLSq/tNTDKt0H5q79bD4wFi2S",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-10T13:58:58.413Z",
+    "updatedAt": "2026-09-10T13:58:58.434Z"
+  },
+  {
+    "_id": "e7f81e93080d0a9f49f542e7",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor3101",
+    "email": "sarah5314@cinemind.ai",
+    "password": "$2b$10$vFprdJynbL/rb6WSdtZuW.eUa8vs0toMJ3tfsFxg.cKnL3UdQ0zwC",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-10T14:25:08.335Z",
+    "updatedAt": "2026-09-10T14:25:08.368Z"
+  },
+  {
+    "_id": "c4b139c24c67efe410e4ef23",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor1139",
+    "email": "sarah2792@cinemind.ai",
+    "password": "$2b$10$lXcEh9DAuXXIihHHkktFs.0u98LOX3iiN8dOfKTkBRqNZmCAcuhpy",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-10T14:26:15.701Z",
+    "updatedAt": "2026-09-10T14:26:15.727Z"
+  },
+  {
+    "_id": "ef0d29544ccd23e5a3de7eb3",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor5039",
+    "email": "sarah8603@cinemind.ai",
+    "password": "$2b$10$9/0UAjkEjCyi6jbyuc6FFu0yzRGqWNkMz70GE6UZ8tBu5T5FgjEOC",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-10T15:01:55.556Z",
+    "updatedAt": "2026-09-10T15:01:55.589Z"
+  },
+  {
+    "_id": "4ae4e7244e8ac6306e3b340c",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor4692",
+    "email": "sarah4560@cinemind.ai",
+    "password": "$2b$10$2wdmI7lWfFYWRH3hWAm4y.GkH2BQgDog/22CMfWApbeL9NnBKanoK",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-10T16:03:30.789Z",
+    "updatedAt": "2026-09-10T16:03:30.814Z"
+  },
+  {
+    "_id": "bd8c8c6ff58884bff5b28e13",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor552",
+    "email": "sarah3335@cinemind.ai",
+    "password": "$2b$10$1/6jJYipc1Tyv.eG2/0uTeaEtvEI6fiidw.InYGd1ZqRhRed/lfZW",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-10T16:37:24.493Z",
+    "updatedAt": "2026-09-10T16:37:24.518Z"
+  },
+  {
+    "_id": "2d63a3a5a0ec81eae1c1ed44",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor8931",
+    "email": "sarah5354@cinemind.ai",
+    "password": "$2b$10$D3XxdjM16uRnfJqLOG1eJ.dwXv5JwWfynd3oizHAGOq/4EJPi.ETe",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-11T12:19:31.216Z",
+    "updatedAt": "2026-09-11T12:19:31.276Z"
+  },
+  {
+    "_id": "2c4a49d397398cb7482ae1e1",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor2793",
+    "email": "sarah202@cinemind.ai",
+    "password": "$2b$10$Tj7fpdUsuN7q4g.SUBumf.hIH9LlsdwWpkJSoobDScyXP1qMOc8gW",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-11T12:36:07.375Z",
+    "updatedAt": "2026-09-11T12:36:07.461Z"
+  },
+  {
+    "_id": "42ca6aceca767a410e155c3c",
+    "name": "Sarah Connor Croft",
+    "username": "sconnor8471",
+    "email": "sarah7317@cinemind.ai",
+    "password": "$2b$10$Sk7g5wO87faoHee1TdsL2O10MTPvTgyg8sjJmX.2Hi5yNw8idmbOm",
+    "dob": "",
+    "favoriteGenres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "preferredContentTypes": [
+      "Movie"
+    ],
+    "preferredLanguages": [
+      "English"
+    ],
+    "role": "user",
+    "status": "active",
+    "avatar": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150",
+    "likedContent": [],
+    "watchlist": [
+      "bc4a8072adf0568f45f45b37"
+    ],
+    "createdAt": "2026-09-11T12:42:07.807Z",
+    "updatedAt": "2026-09-11T12:42:07.845Z"
+  }
+]

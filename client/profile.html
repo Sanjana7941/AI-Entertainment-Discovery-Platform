@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile – CineMind AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/components.css" />
+  <link rel="stylesheet" href="/css/responsive.css" />
+</head>
+<body>
+  <div id="navbar-container"></div>
+
+  <main style="padding: 40px 0 80px;">
+    <div class="container" style="max-width: 960px;">
+      <!-- PROFILE HEADER CARD -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 36px; margin-bottom: 36px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+        <div style="display: flex; align-items: center; gap: 24px;">
+          <img id="profile-avatar" src="" alt="Profile" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; border: 3px solid var(--accent-primary); box-shadow: var(--accent-glow);" />
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 4px;">
+              <h1 id="profile-name" style="font-size: 2rem; margin: 0;">User Name</h1>
+              <span id="profile-role" class="badge badge-primary">USER</span>
+            </div>
+            <div id="profile-username" style="color: var(--accent-secondary); font-weight: 600; margin-bottom: 4px;">@username</div>
+            <div id="profile-email" style="color: var(--text-muted); font-size: 0.88rem;">email@example.com</div>
+          </div>
+        </div>
+
+        <div>
+          <button id="open-edit-profile-btn" class="btn btn-primary">
+            ✏️ Edit Profile & Preferences
+          </button>
+        </div>
+      </div>
+
+      <!-- STATISTICS SUMMARY -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 36px;">
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 18px; text-align: center;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Movies Watched</div>
+          <div style="font-size: 1.8rem; font-weight: 800; margin-top: 4px;" id="profile-stat-movies">0</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 18px; text-align: center;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Shows Explored</div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: #818cf8; margin-top: 4px;" id="profile-stat-shows">0</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 18px; text-align: center;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Hours Watched</div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: #22d3ee; margin-top: 4px;" id="profile-stat-hours">0h</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 18px; text-align: center;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Reviews Left</div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: var(--star-gold); margin-top: 4px;" id="profile-stat-ratings">0</div>
+        </div>
+        <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 18px; text-align: center;">
+          <div style="font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase;">Current Streak</div>
+          <div style="font-size: 1.8rem; font-weight: 800; color: #ec4899; margin-top: 4px;" id="profile-stat-streak">1 Day</div>
+        </div>
+      </div>
+
+      <!-- TASTE PREFERENCES SECTION -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 32px; margin-bottom: 36px;">
+        <h3 style="font-size: 1.3rem; margin-bottom: 20px;">Entertainment Preferences</h3>
+
+        <div style="margin-bottom: 20px;">
+          <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase;">Favorite Genres</h4>
+          <div id="profile-genres" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase;">Preferred Languages</h4>
+          <div id="profile-languages" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 10px; text-transform: uppercase;">Preferred Formats</h4>
+          <div id="profile-types" style="display: flex; gap: 8px; flex-wrap: wrap;"></div>
+        </div>
+      </div>
+
+      <!-- FAVORITE TITLES ROW -->
+      <section id="profile-favorites-section">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">❤️ Your Favorites</h2>
+            <p class="section-subtitle">Titles you have personally bookmarked as beloved</p>
+          </div>
+        </div>
+        <div class="carousel-wrap">
+          <div class="carousel-track" id="profile-favorites-track">
+            <!-- Populated by profile.js -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- EDIT PROFILE MODAL -->
+  <div id="edit-profile-modal" class="modal-backdrop">
+    <div class="modal-dialog modal-dialog-large">
+      <div class="modal-header">
+        <h3 class="modal-title">Edit Profile & Preferences</h3>
+        <button class="modal-close-btn" onclick="closeModal('edit-profile-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="edit-profile-form">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+            <div class="form-group">
+              <label class="form-label" for="edit-name">Full Name</label>
+              <input type="text" id="edit-name" class="form-input" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="edit-username">Username</label>
+              <input type="text" id="edit-username" class="form-input" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="edit-avatar">Profile Picture / Avatar Image URL</label>
+            <input type="url" id="edit-avatar" class="form-input" placeholder="https://..." />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Favorite Genres</label>
+            <div class="chips-selector" id="edit-genres-chips"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Preferred Languages</label>
+            <div class="chips-selector" id="edit-languages-chips"></div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Preferred Content Types</label>
+            <div class="chips-selector" id="edit-types-chips"></div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end; gap: 12px; margin-top: 24px;">
+            <button type="button" class="btn btn-secondary" onclick="closeModal('edit-profile-modal')">Cancel</button>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-container"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/common.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>
