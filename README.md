@@ -25,7 +25,6 @@ The platform combines an intelligent recommendation engine with a conversational
 * 🔐 **JWT-based authentication**
 * 🌙 **Dark / Light theme support**
 * 📱 **Responsive cinematic user interface**
-* 💾 **MongoDB + persistent JSON fallback storage**
 
 ---
 
@@ -37,15 +36,15 @@ CineMind AI uses a multi-factor recommendation system to calculate how well each
 
 The recommendation score considers:
 
-🎭 Genre preference
-🌍 Language preference
-📺 Content type
-⭐ Rating preference
-📚 Watch history
-❤️ Favorite content
-😊 Mood compatibility
-🔥 Popularity
-🔗 Similarity with previously watched content
+* 🎭 Genre preference
+* 🌍 Language preference
+* 📺 Content type
+* ⭐ Rating preference
+* 📚 Watch history
+* ❤️ Favorite content
+* 😊 Mood compatibility
+* 🔥 Popularity
+* 🔗 Similarity with previously watched content
 
 ---
 
@@ -66,18 +65,6 @@ The built-in conversational assistant allows users to discover entertainment usi
 
 ❤️ Give me some romantic movies
 ```
-
-The assistant can understand:
-
-✅ Genres
-✅ Languages
-✅ Content types
-✅ Runtime constraints
-✅ Actors
-✅ Directors
-✅ Specific titles
-✅ Similar-content requests
-✅ Family-friendly content
 
 ---
 
@@ -106,14 +93,14 @@ Not sure what to watch?
 
 Explore entertainment using powerful filters:
 
-🔍 Search
-🎭 Genre
-🌍 Language
-📅 Release Year
-⭐ Rating
-😊 Mood
-📺 Content Type
-↕️ Sorting
+* 🔍 Search
+* 🎭 Genre
+* 🌍 Language
+* 📅 Release Year
+* ⭐ Rating
+* 😊 Mood
+* 📺 Content Type
+* ↕️ Sorting
 
 ---
 
@@ -121,11 +108,11 @@ Explore entertainment using powerful filters:
 
 Save the entertainment you don't want to forget.
 
-📌 Add titles
-❌ Remove titles
-🔎 Search saved content
-↕️ Sort watchlist
-✅ Manage watched content
+* 📌 Add titles
+* ❌ Remove titles
+* 🔎 Search saved content
+* ↕️ Sort watchlist
+* ✅ Manage watched content
 
 ---
 
@@ -133,11 +120,11 @@ Save the entertainment you don't want to forget.
 
 Keep track of your entertainment journey.
 
-▶️ Continue Watching
-📈 Track Progress
-✅ Mark as Watched
-🗑️ Remove History
-🧹 Clear Viewing History
+* ▶️ Continue Watching
+* 📈 Track Progress
+* ✅ Mark as Watched
+* 🗑️ Remove History
+* 🧹 Clear Viewing History
 
 ---
 
@@ -145,10 +132,10 @@ Keep track of your entertainment journey.
 
 Share your experience and help improve the community.
 
-⭐ **1–5 star ratings**
-📝 **Write reviews**
-📊 **Average rating calculation**
-💬 **Community feedback**
+* ⭐ **1–5 star ratings**
+* 📝 **Write reviews**
+* 📊 **Average rating calculation**
+* 💬 **Community feedback**
 
 ---
 
@@ -156,7 +143,7 @@ Share your experience and help improve the community.
 
 Everything you need in one place:
 
-🎯 Recommendations
+| 🎯 Recommendations |
 🔥 Trending Content
 ▶️ Continue Watching
 ❤️ Watchlist
